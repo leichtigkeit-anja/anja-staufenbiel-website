@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wo fließt deine Energie hin? | FreeQuency Spirit</title>
+<meta name="description" content="8 Fragen, 2 Minuten. Finde heraus, wo deine Energie hinfließt, und hol dir die Rückfluss-Session gratis dazu.">
+<!-- Bunny Fonts: DSGVO-freundlicher Ersatz für Google Fonts -->
+<link rel="icon" type="image/png" href="bilder/favicon.png">
+<link rel="apple-touch-icon" href="bilder/logo.png">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=cormorant-garamond:500,600,600i|jost:300,400,500" rel="stylesheet">
+<style>
+  /* =========================================================
+     MARKENFARBEN, hier zentral anpassbar
+     ========================================================= */
+  :root {
+    --navy: #1F2A44;
+    --navy-soft: #34405C;
+    --gold: #B8964A;
+    --gold-light: #E6D3A8;
+    --cream: #FAF6EE;
+    --cream-dark: #F1EADB;
+    --sage: #7D8F72;
+    --sage-light: #DDE3D6;
+    --white: #FFFFFF;
+    --radius: 16px;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main { flex: 1; width: 100%; max-width: 680px; margin: 0 auto; padding: 32px 16px 48px; }
+  .brand {
+    text-align: center; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 28px;
+  }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; color: var(--navy); }
+  h1 { font-size: clamp(38px, 8vw, 56px); }
+  h2 { font-size: clamp(28px, 6vw, 38px); }
+  h3 { font-size: 22px; margin-bottom: 6px; }
+  em { font-family: var(--serif); font-style: italic; font-size: 1.1em; }
+  p + p { margin-top: 14px; }
+
+  .screen { display: none; animation: fade .45s ease; }
+  .screen.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .screen { animation: none; } .bar-fill { transition: none; } }
+
+  /* ---------- Intro ---------- */
+  .intro { text-align: center; padding-top: 4vh; }
+  .intro h1 { margin-bottom: 18px; }
+  .intro .lead { font-size: 19px; color: var(--navy-soft); max-width: 520px; margin: 0 auto 32px; }
+  .facts { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-bottom: 36px;
+    font-size: 14px; color: var(--sage); font-weight: 500; letter-spacing: .04em; }
+  .facts span::before { content: "✦ "; color: var(--gold); }
+  .ornament { width: 64px; height: 1px; background: var(--gold); margin: 0 auto 28px; }
+
+  .btn {
+    display: inline-block; background: var(--navy); color: var(--cream); border: none;
+    font-family: var(--sans); font-size: 16px; font-weight: 500; letter-spacing: .06em;
+    padding: 17px 34px; border-radius: 999px; cursor: pointer; text-decoration: none;
+    transition: background .2s, transform .2s;
+  }
+  .btn:hover { background: var(--navy-soft); transform: translateY(-1px); }
+  .btn:focus-visible, .option:focus-visible, .back:focus-visible, input:focus-visible {
+    outline: 3px solid var(--gold); outline-offset: 3px;
+  }
+  .btn.gold { background: var(--gold); color: var(--white); }
+  .btn.gold:hover { background: #A5843D; }
+  .btn[disabled] { opacity: .5; cursor: wait; }
+  .small { font-size: 13px; color: var(--navy-soft); }
+
+  /* ---------- Fragen ---------- */
+  .progress { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
+  .bar { flex: 1; height: 4px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--gold); width: 0; transition: width .4s ease; }
+  .count { font-size: 13px; color: var(--sage); font-weight: 500; white-space: nowrap; }
+  .question { margin-bottom: 26px; }
+  .options { display: grid; gap: 12px; }
+  .option {
+    text-align: left; background: var(--white); border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius); padding: 17px 20px; font-family: var(--sans); font-size: 16px;
+    font-weight: 300; color: var(--navy); line-height: 1.5; cursor: pointer;
+    transition: border-color .2s, background .2s, transform .15s;
+  }
+  .option:hover { border-color: var(--gold); transform: translateX(3px); }
+  .option.chosen { border-color: var(--gold); background: #FBF5E8; }
+  .back { margin-top: 22px; background: none; border: none; color: var(--sage); font-family: var(--sans);
+    font-size: 14px; cursor: pointer; padding: 6px 0; }
+  .back:hover { color: var(--navy); }
+
+  /* ---------- E-Mail ---------- */
+  .card { background: var(--white); border-radius: 22px; padding: 36px 26px; box-shadow: 0 10px 40px rgba(31,42,68,.07); }
+  .gate { text-align: center; }
+  .gate h2 { margin-bottom: 12px; }
+  .gate .lead { color: var(--navy-soft); margin-bottom: 26px; }
+  .gift { display: flex; gap: 14px; align-items: flex-start; text-align: left; background: var(--sage-light);
+    border-radius: var(--radius); padding: 16px 18px; margin-bottom: 26px; font-size: 15px; }
+  .gift strong { font-weight: 500; }
+  .gift .icon { font-size: 22px; line-height: 1; color: var(--sage); }
+  form { text-align: left; }
+  label.field { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  input[type=text], input[type=email] {
+    width: 100%; font-family: var(--sans); font-size: 16px; padding: 14px 16px; margin-bottom: 16px;
+    border: 1.5px solid var(--cream-dark); border-radius: 12px; background: var(--cream); color: var(--navy);
+  }
+  input[type=text]:focus, input[type=email]:focus { border-color: var(--gold); outline: none; }
+  .consent { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.5;
+    color: var(--navy-soft); margin: 4px 0 22px; }
+  .consent input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; }
+  .consent a { color: var(--navy); }
+  .error { color: #A04545; font-size: 14px; margin-bottom: 14px; display: none; }
+  .hp { position: absolute; left: -9999px; }
+  form .btn { width: 100%; }
+
+  /* ---------- Ergebnis ---------- */
+  .result-head { text-align: center; margin-bottom: 30px; }
+  .eyebrow { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage);
+    font-weight: 500; margin-bottom: 10px; }
+  .result-head h2 { font-size: clamp(36px, 8vw, 50px); margin-bottom: 10px; }
+  .tagline { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--gold); }
+  .block { margin-bottom: 28px; }
+  .block h3 { color: var(--navy); }
+  .belief { border-left: 3px solid var(--gold); padding: 6px 0 6px 18px; font-family: var(--serif);
+    font-size: 22px; font-style: italic; color: var(--navy-soft); margin: 10px 0 12px; }
+  .impulse { background: var(--sage-light); border-radius: var(--radius); padding: 20px 22px; }
+  .secondary { font-size: 15px; color: var(--navy-soft); text-align: center; margin: 4px 0 32px; }
+  .secondary strong { font-weight: 500; color: var(--navy); }
+  .cta { background: var(--navy); color: var(--cream); border-radius: 22px; padding: 36px 26px; text-align: center; }
+  .cta h2 { color: var(--cream); font-size: clamp(26px, 6vw, 34px); margin-bottom: 14px; }
+  .cta p { color: #D9DCE4; margin-bottom: 24px; }
+  .cta .small { color: #AEB4C2; margin: 16px 0 0; }
+  .reset { text-align: center; margin-top: 28px; font-size: 15px; color: var(--navy-soft); }
+  .reset a { color: var(--navy); font-weight: 500; }
+  .confirm-note { text-align: center; font-size: 14px; color: var(--sage); background: var(--white);
+    border-radius: 12px; padding: 12px 16px; margin-bottom: 28px; }
+
+  footer { text-align: center; font-size: 12px; color: var(--navy-soft); padding: 24px 16px 32px;
+    border-top: 1px solid var(--cream-dark); }
+  footer p { max-width: 560px; margin: 0 auto 10px; }
+  footer a { color: var(--navy-soft); margin: 0 8px; }
+
+  /* Offene Fragen */
+  .open-card h2 { margin-bottom: 12px; }
+  .open-card .lead { color: var(--navy-soft); margin-bottom: 26px; }
+  .eyebrow-small { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 10px; }
+  textarea { width: 100%; font-family: var(--sans); font-size: 16px; line-height: 1.5; padding: 14px 16px; margin-bottom: 20px;
+    border: 1.5px solid var(--cream-dark); border-radius: 12px; background: var(--cream); color: var(--navy); resize: vertical; }
+  textarea:focus { border-color: var(--gold); outline: none; }
+  .open-card .btn { width: 100%; margin-top: 4px; }
+  .skip { display: block; margin: 14px auto 0; }
+
+  .brand img { width: 110px; height: auto; display: inline-block; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><a href="index.html"><img src="bilder/logo.png" alt="FreeQuency Spirit Logo"></a></div>
+
+  <!-- ============ INTRO ============ -->
+  <section class="screen active intro" id="screen-intro">
+    <div class="eyebrow-small" style="text-align:center">Für feinfühlige Unternehmerinnen</div>
+    <h1>Wo fließt deine Energie hin?</h1>
+    <div class="ornament"></div>
+    <p class="lead">Du gibst den ganzen Tag. Aber wohin verschwindet eigentlich deine Kraft? Finde es in acht Fragen heraus. Ehrlich, liebevoll und mit einem Augenzwinkern.</p>
+    <div class="facts"><span>8 Fragen</span><span>2 Minuten</span><span>7-Minuten-Frequenz-Auszeit gratis</span></div>
+    <button class="btn" id="start">Quiz starten</button>
+  </section>
+
+  <!-- ============ FRAGEN ============ -->
+  <section class="screen" id="screen-quiz">
+    <div class="progress">
+      <div class="bar"><div class="bar-fill" id="bar"></div></div>
+      <div class="count" id="count">1 von 8</div>
+    </div>
+    <h2 class="question" id="question"></h2>
+    <div class="options" id="options"></div>
+    <button class="back" id="back">← Zurück</button>
+  </section>
+
+  <!-- ============ ZWEI OFFENE FRAGEN ============ -->
+  <section class="screen" id="screen-open">
+    <div class="card open-card">
+      <div class="eyebrow-small">Zwei Fragen nur für dich · freiwillig</div>
+      <h2>Bevor du dein Ergebnis siehst</h2>
+      <p class="lead">Nimm dir einen Atemzug Zeit. Es gibt kein Richtig oder Falsch. Deine Antworten helfen mir, dich im Klarheitsgespräch noch besser zu verstehen.</p>
+      <label class="field" for="satz">Welchen Satz sagst du dir am häufigsten?</label>
+      <textarea id="satz" rows="2" maxlength="300" placeholder="Zum Beispiel: „Ich muss das alleine schaffen.“"></textarea>
+      <label class="field" for="traum">Was würdest du tun, wenn Geld kein Thema wäre?</label>
+      <textarea id="traum" rows="3" maxlength="500" placeholder="Schreib einfach drauflos …"></textarea>
+      <button class="btn gold" id="open-next">Weiter zu meinem Ergebnis</button>
+      <button class="back skip" id="open-skip">Überspringen</button>
+    </div>
+  </section>
+
+  <!-- ============ E-MAIL ============ -->
+  <section class="screen gate" id="screen-gate">
+    <div class="card">
+      <h2>Dein Ergebnis ist fertig.</h2>
+      <p class="lead">Wohin darf ich es dir schicken?</p>
+      <div class="gift">
+        <div class="icon">✦</div>
+        <div><strong>Als Geschenk dazu: die Rückfluss-Session.</strong><br>Sieben Minuten, in denen du mal nicht gibst, sondern empfängst. Dein persönlicher Link ist ein ganzes Jahr gültig. Hör sie, so oft du magst.</div>
+      </div>
+      <form id="form" novalidate>
+        <label class="field" for="vorname">Vorname</label>
+        <input type="text" id="vorname" name="vorname" autocomplete="given-name" required>
+        <label class="field" for="email">E-Mail-Adresse</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+        <input type="text" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span>Ja, ich möchte mein Ergebnis, die Rückfluss-Session und Anjas Impulse per E-Mail bekommen. Ich kann mich jederzeit mit einem Klick abmelden. Mehr dazu in der <a href="#" class="link-datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+        </label>
+        <div class="error" id="error"></div>
+        <button class="btn gold" type="submit" id="submit">Ergebnis ansehen</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ ERGEBNIS ============ -->
+  <section class="screen" id="screen-result">
+    <div class="confirm-note" id="confirm-note">✉️ Schau gleich in dein Postfach und bestätige deine E-Mail-Adresse. Dann kommt dein persönlicher Link zur Rückfluss-Session zu dir. Er ist ein ganzes Jahr gültig.</div>
+    <div class="result-head">
+      <div class="eyebrow">Dein Energie-Typ</div>
+      <h2 id="r-name"></h2>
+      <div class="tagline" id="r-tagline"></div>
+    </div>
+    <div class="block"><p id="r-text"></p></div>
+    <div class="block">
+      <h3>Was dahinterstecken kann</h3>
+      <div class="belief" id="r-belief"></div>
+      <p id="r-belief-text"></p>
+    </div>
+    <div class="block impulse">
+      <h3>Dein Impuls für heute</h3>
+      <p id="r-impulse"></p>
+    </div>
+    <p class="secondary" id="r-secondary"></p>
+    <div class="cta">
+      <h2>Du weißt genau, was andere brauchen. Lass uns herausfinden, was du brauchst.</h2>
+      <p>Dein Quiz-Ergebnis ist ein erster Hinweis. Im kostenlosen 15-minütigen Klarheitsgespräch siehst du in deiner persönlichen Analyse schwarz auf weiß, welches Muster dich gerade wirklich ausbremst. Genau dort setzt meine Rückfluss-Methode an: Erkennen, Lösen, Verankern. Kein Druck, keine Verpflichtung. Und wenn es nicht passt, sage ich dir das auch.</p>
+      <a class="btn gold link-gespraech" href="#" target="_blank" rel="noopener">Klarheitsgespräch buchen</a>
+      <p class="small">15 Minuten · kostenlos · per Zoom</p>
+    </div>
+    <p class="reset">Noch nicht bereit für ein Gespräch? Komm in meine kostenlose <a href="https://t.me/+W1jT5dt_Ab01OTVi" target="_blank" rel="noopener">Telegram-Gruppe</a> oder schau dir das Gruppenprogramm <a href="#" class="link-reset" target="_blank" rel="noopener">The Frequency Reset</a> an.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Meine Arbeit ist energetische Begleitung. Sie ersetzt keine ärztliche, psychotherapeutische oder heilpraktische Behandlung.</p>
+  <a href="#" class="link-impressum" target="_blank" rel="noopener">Impressum</a>
+  <a href="#" class="link-datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+</footer>
+
+<script>
+/* =========================================================
+   EINSTELLUNGEN: Hier trägst du deine Links ein
+   ========================================================= */
+const CONFIG = {
+  // Brevo: Formular-Adresse (siehe Anleitung). Leer lassen = Testmodus, es wird nichts gesendet.
+  BREVO_FORM_URL: "https://7c8bcbe8.sibforms.com/serve/MUIFAOzwzE_KRoDkV4WHsTdoLdn8sNXifTQF6O00nugdbdzAEuO_xHhwXP-bbca_4GG1YuaQIX7X-KYOV4TRtavHzSROIpMumiFE9i8mi_6iN5jpw8lj5YnaHssRZDdSg2jOo8EgdhVa8kikYBpiIjLaYnPv_q10oGribIvsbf1law7oqUpa6AvHcLa8AnZmORQnUB448MWk1zfN",
+  // Feldnamen exakt so, wie die Attribute in Brevo heißen
+  FIELD_EMAIL: "EMAIL",
+  FIELD_VORNAME: "VORNAME",
+  FIELD_TYP: "QUIZ_TYP",
+  FIELD_TYP2: "QUIZ_TYP_2",
+  FIELD_SATZ: "QUIZ_SATZ",
+  FIELD_TRAUM: "QUIZ_OHNE_GELD",
+
+  LINK_KLARHEITSGESPRAECH: "https://meet.brevo.com/anja-staufenbiel-1/klarheitsgesprach",
+  LINK_FREQUENCY_RESET: "https://frequency-reset.online",
+  LINK_IMPRESSUM: "impressum.html",
+  LINK_DATENSCHUTZ: "datenschutz.html"
+};
+
+/* =========================================================
+   DIE FÜNF ENERGIE-TYPEN
+   ========================================================= */
+const TYPES = {
+  bereit: {
+    name: "Die Allzeit-Bereite",
+    tagline: "Immer da. Für alle. Außer für dich.",
+    text: "Dein Handy ist nie ganz aus, dein Herz auch nicht. Wenn jemand dich braucht, bist du da, schneller als die Feuerwehr. Das ist eine wunderschöne Gabe. Nur hat sie einen Haken: Deine Energie fließt in alle Richtungen gleichzeitig ab, wie Wasser aus einem Gartenschlauch mit zwanzig Löchern. Am Ende kommt bei deinen eigenen Projekten kaum noch ein Tropfen an.",
+    belief: "„Wenn ich Nein sage, lasse ich jemanden im Stich.“",
+    beliefText: "Viele Allzeit-Bereite haben früh gelernt, dass sie geliebt werden, wenn sie gebraucht werden. Das sitzt tief. Nicht im Kopf, sondern im Körper. Deshalb reicht es nicht, sich vorzunehmen, öfter Nein zu sagen. Das Muster darunter will gelöst werden.",
+    impulse: "Antworte heute auf eine Nachricht bewusst erst in drei Stunden. Nicht aus Trotz, sondern als kleines Experiment. Beobachte, was in dir passiert. Und was bei der anderen Person passiert. Spoiler: meistens gar nichts."
+  },
+  leuchtend: {
+    name: "Die Leise Leuchtende",
+    tagline: "Großes Können. Kleiner Preis.",
+    text: "Du bist richtig gut in dem, was du tust. Deine Kundinnen wissen das. Nur dein Preis weiß es noch nicht. Du gibst Rabatte, bevor jemand fragt, und erzählst lieber nicht so laut von deinen Erfolgen. Das Ergebnis: Du gibst Premium und bekommst Sonderangebot. Und irgendwie landen bei dir immer wieder genau die Menschen, die gerade nicht zahlen können.",
+    belief: "„Wer bin ich, dass ich so viel dafür nehme?“",
+    beliefText: "Hinter niedrigen Preisen steckt selten fehlendes Können. Meist steckt ein innerer Glaubenssatz dahinter, der dein Business leise mitsteuert. Und der Menschen anzieht, die genau dieses Muster bestätigen. Wenn sich dein innerer Wert verschiebt, verschiebt sich auch, wer zu dir kommt.",
+    impulse: "Schreib heute deinen aktuellen Preis auf einen Zettel. Und darunter den Preis, den du nehmen würdest, wenn du dir deines Wertes ganz sicher wärst. Lies beide Zahlen laut vor. Spür nach, bei welcher dein Körper sich zusammenzieht. Da wohnt dein Muster."
+  },
+  quelle: {
+    name: "Die Leere Quelle",
+    tagline: "Du versorgst das ganze Dorf. Und trocknest langsam aus.",
+    text: "Du bist der Brunnen, aus dem alle schöpfen. Kundinnen, Familie, Freundinnen. Und du gibst gern, wirklich. Aber irgendwann ist der Eimer leer, und du merkst es oft erst, wenn gar nichts mehr geht. Abends fehlt dir die Kraft für deine eigenen Pläne, morgens wachst du schon müde auf. Wie ein Handy, das nie über 40 Prozent kommt.",
+    belief: "„Ich darf mich nicht beschweren. Ich liebe ja meine Arbeit.“",
+    beliefText: "Das Spannende: Es geht nicht nur darum, wie du wieder auftankst. Sondern darum, wo du dauerhaft Energie verlierst. Erst wenn die Lecks sichtbar werden, bleibt die neue Kraft auch bei dir.",
+    impulse: "Nimm dir heute sieben Minuten, in denen du nichts leistest. Kein Podcast, kein Aufräumen, keine Nachricht. Leg dich hin, hör die Rückfluss-Session und lass etwas zu dir zurückfließen. Das ist keine Faulheit. Das ist Wartung."
+  },
+  fastfertig: {
+    name: "Die Fast-Fertige",
+    tagline: "Große Pläne. Kurz vor dem Sichtbarwerden.",
+    text: "Dein Buch ist zu 80 Prozent fertig. Dein Programm steht als Notiz im Handy. Den Beitrag hast du geschrieben und dann wieder gelöscht. Du hast Visionen, Talent und Ideen für drei Leben. Und trotzdem passiert kurz bevor du dich richtig zeigst immer wieder etwas: Zweifel, Perfektionismus, plötzlich ganz dringende andere Dinge. Als würde eine unsichtbare Hand im letzten Moment die Handbremse ziehen.",
+    belief: "„Wenn ich richtig sichtbar werde, werde ich auch angreifbar.“",
+    beliefText: "Selbstsabotage ist kein Charakterfehler. Sie hat fast immer eine Schutzfunktion. Irgendein Teil in dir hält es für sicherer, klein zu bleiben. Die Frage ist nicht, warum du es falsch machst, sondern wovor dieser Teil dich beschützen will.",
+    impulse: "Such dir heute ein fast fertiges Projekt aus und mach daran genau einen kleinen, sichtbaren Schritt. Einen Absatz. Eine E-Mail. Einen Post. Nicht perfekt, sondern fertig. Fertig ist das neue Perfekt."
+  },
+  denkerin: {
+    name: "Die Dauerdenkerin",
+    tagline: "Alles durchdacht. Nichts zur Ruhe gebracht.",
+    text: "Dein Kopf hat keinen Feierabend. Gespräche des Tages laufen abends in Dauerschleife, Entscheidungen werden fünfmal durchgespielt, und um drei Uhr nachts fällt dir noch etwas ein. Deine Fähigkeit, Zusammenhänge zu sehen, ist ein echtes Talent. Nur verbraucht dieses Gedankenkarussell so viel Energie, dass für das Umsetzen kaum etwas übrig bleibt.",
+    belief: "„Wenn ich nur lange genug nachdenke, finde ich die perfekte Lösung.“",
+    beliefText: "Es geht nicht darum, Gedanken abzuschalten. Das klappt ohnehin nicht. Es geht darum, wieder Abstand zu ihnen zu bekommen. Viele Gedankenschleifen sind alte Muster, die immer wieder dieselben Bahnen ziehen, wie eine Schallplatte mit Kratzer.",
+    impulse: "Stell dir heute Abend einen Wecker auf 20 Minuten und schreib alles auf, was in deinem Kopf kreist. Ungefiltert. Wenn der Wecker klingelt, klappst du das Heft zu und sagst laut: Für heute ist Feierabend. Klingt simpel. Probier es einfach mal aus."
+  }
+};
+
+/* Priorität bei Gleichstand */
+const PRIORITY = ["leuchtend", "bereit", "quelle", "fastfertig", "denkerin"];
+
+/* =========================================================
+   DIE ACHT FRAGEN
+   ========================================================= */
+const QUESTIONS = [
+  { q: "Es ist Sonntagabend. Was geht dir durch den Kopf?", a: {
+    bereit: "Hoffentlich hat morgen niemand einen Notfall. Ach, ich bin ja eh erreichbar.",
+    leuchtend: "Ich müsste endlich meine Preise anpassen. Nächste Woche vielleicht.",
+    quelle: "Ich bin jetzt schon müde, wenn ich an Montag denke.",
+    fastfertig: "Diese Woche fange ich wirklich mit meinem Projekt an. Wie letzte Woche auch.",
+    denkerin: "Alles gleichzeitig. Und zwar dreimal hintereinander." } },
+  { q: "Eine Kundin fragt, ob du ihr preislich entgegenkommen kannst. Du …", a: {
+    bereit: "… sagst sofort Ja und bietest ihr noch eine Extra-Session an.",
+    leuchtend: "… gibst den Rabatt und denkst insgeheim: Ist ja eigentlich eh zu teuer.",
+    quelle: "… hast keine Kraft für eine Diskussion und sagst einfach Ja.",
+    fastfertig: "… sagst Ja und wunderst dich später, warum dein Umsatzziel wieder nicht klappt.",
+    denkerin: "… grübelst noch drei Tage, ob deine Antwort die richtige war." } },
+  { q: "Dein Herzensprojekt, also das Buch, das Programm, der Kurs …", a: {
+    bereit: "… wartet, bis alle anderen versorgt sind.",
+    leuchtend: "… gibt es schon, aber du erzählst kaum jemandem davon.",
+    quelle: "… braucht Energie, die du gerade einfach nicht hast.",
+    fastfertig: "… ist zu 80 Prozent fertig. Seit einem Jahr.",
+    denkerin: "… existiert in 14 Versionen in deinem Kopf." } },
+  { q: "Wenn du ehrlich bist: Was raubt dir am meisten Energie?", a: {
+    bereit: "Dass alle etwas von mir wollen und ich nicht Nein sage.",
+    leuchtend: "Dass ich so viel gebe und so wenig zurückkommt.",
+    quelle: "Ehrlich gesagt alles. Mein Akku ist einfach chronisch leer.",
+    fastfertig: "Dass ich mir selbst immer wieder im Weg stehe.",
+    denkerin: "Mein Kopf, der nie Feierabend macht." } },
+  { q: "Jemand macht dir ein großes Kompliment für deine Arbeit. Du …", a: {
+    bereit: "… bedankst dich und fragst sofort, wie es ihr eigentlich geht.",
+    leuchtend: "… sagst: „Ach, das war doch nichts Besonderes.“",
+    quelle: "… freust dich, bist aber zu müde, um es richtig zu spüren.",
+    fastfertig: "… denkst: Wenn sie wüsste, was ich alles noch nicht geschafft habe.",
+    denkerin: "… überlegst abends noch, ob sie das wirklich ernst gemeint hat." } },
+  { q: "Dein Handy um 22 Uhr:", a: {
+    bereit: "Natürlich antworte ich noch schnell auf die Sprachnachricht.",
+    leuchtend: "Ich scrolle durch Profile von Kolleginnen, die viel mehr verlangen als ich.",
+    quelle: "Liegt neben mir, während ich auf dem Sofa einschlafe.",
+    fastfertig: "Ich plane noch Content für morgen. Den ich dann doch nicht poste.",
+    denkerin: "Ich lese noch etwas, damit mein Kopf zur Ruhe kommt. Klappt nicht." } },
+  { q: "Wenn du an Geld denkst, spürst du …", a: {
+    bereit: "… ein schlechtes Gewissen. Andere brauchen es doch dringender.",
+    leuchtend: "… ein Ziehen im Bauch. Als dürfte ich gar nicht so viel nehmen.",
+    quelle: "… Müdigkeit. Mehr Geld hieße mehr arbeiten, und dafür fehlt mir die Kraft.",
+    fastfertig: "… wieder dieses Gefühl, kurz vor dem Durchbruch zu stehen.",
+    denkerin: "… ganz viele Rechnungen, Pläne und Szenarien gleichzeitig." } },
+  { q: "Was wünschst du dir gerade am meisten?", a: {
+    bereit: "Einmal nicht für alle da sein müssen. Ohne schlechtes Gewissen.",
+    leuchtend: "Dass mein Wert endlich auch auf meinem Konto ankommt.",
+    quelle: "Morgens aufwachen und mich richtig lebendig fühlen.",
+    fastfertig: "Endlich umsetzen, was längst in mir steckt.",
+    denkerin: "Ruhe im Kopf. Einfach mal Stille." } }
+];
+
+/* =========================================================
+   LOGIK
+   ========================================================= */
+const $ = id => document.getElementById(id);
+let current = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+let shuffled = QUESTIONS.map(q => shuffle(Object.keys(q.a)));
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+
+function show(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  $(id).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[current];
+  $("question").textContent = q.q;
+  $("count").textContent = (current + 1) + " von " + QUESTIONS.length;
+  $("bar").style.width = (current / QUESTIONS.length * 100) + "%";
+  $("back").style.visibility = current === 0 ? "hidden" : "visible";
+  const box = $("options");
+  box.innerHTML = "";
+  shuffled[current].forEach(key => {
+    const b = document.createElement("button");
+    b.className = "option" + (answers[current] === key ? " chosen" : "");
+    b.textContent = q.a[key];
+    b.addEventListener("click", () => choose(key, b));
+    box.appendChild(b);
+  });
+}
+
+function choose(key, btn) {
+  answers[current] = key;
+  btn.classList.add("chosen");
+  setTimeout(() => {
+    if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
+    else { $("bar").style.width = "100%"; show("screen-open"); }
+  }, 280);
+}
+
+function evaluate() {
+  const score = {};
+  PRIORITY.forEach(k => score[k] = 0);
+  answers.forEach(a => { if (a) score[a]++; });
+  const ranked = PRIORITY.slice().sort((x, y) => score[y] - score[x] || PRIORITY.indexOf(x) - PRIORITY.indexOf(y));
+  return { main: ranked[0], second: score[ranked[1]] >= 2 ? ranked[1] : null };
+}
+
+function showResult(sent) {
+  const { main, second } = evaluate();
+  const t = TYPES[main];
+  $("r-name").textContent = t.name;
+  $("r-tagline").textContent = t.tagline;
+  $("r-text").textContent = t.text;
+  $("r-belief").textContent = t.belief;
+  $("r-belief-text").textContent = t.beliefText;
+  $("r-impulse").textContent = t.impulse;
+  $("r-secondary").innerHTML = second
+    ? "Auch stark bei dir: <strong>" + TYPES[second].name + "</strong>. Die meisten Frauen tragen mehrere Muster in sich. Im Klarheitsgespräch sehen wir, wie sie bei dir zusammenhängen."
+    : "";
+  $("confirm-note").style.display = sent ? "block" : "none";
+  show("screen-result");
+}
+
+async function sendToBrevo(vorname, email) {
+  if (!CONFIG.BREVO_FORM_URL) { console.info("Testmodus: keine Brevo-URL eingetragen."); return; }
+  const { main, second } = evaluate();
+  const data = new FormData();
+  data.append(CONFIG.FIELD_EMAIL, email);
+  data.append(CONFIG.FIELD_VORNAME, vorname);
+  data.append(CONFIG.FIELD_TYP, TYPES[main].name);
+  data.append(CONFIG.FIELD_TYP2, second ? TYPES[second].name : "");
+  data.append(CONFIG.FIELD_SATZ, $("satz").value.trim());
+  data.append(CONFIG.FIELD_TRAUM, $("traum").value.trim());
+  data.append("email_address_check", "");
+  data.append("locale", "de");
+  await fetch(CONFIG.BREVO_FORM_URL, { method: "POST", body: data, mode: "no-cors" });
+}
+
+/* Events */
+$("open-next").addEventListener("click", () => show("screen-gate"));
+$("open-skip").addEventListener("click", () => { $("satz").value = ""; $("traum").value = ""; show("screen-gate"); });
+$("start").addEventListener("click", () => { current = 0; renderQuestion(); show("screen-quiz"); });
+$("back").addEventListener("click", () => { if (current > 0) { current--; renderQuestion(); } });
+
+$("form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const vorname = $("vorname").value.trim();
+  const email = $("email").value.trim();
+  const err = $("error");
+  err.style.display = "none";
+  if (e.target.website.value) return; // Spam-Schutz
+  if (!vorname) { err.textContent = "Wie darf ich dich nennen?"; err.style.display = "block"; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Bitte prüf noch einmal deine E-Mail-Adresse."; err.style.display = "block"; return; }
+  if (!$("consent").checked) { err.textContent = "Bitte bestätige kurz, dass du die E-Mails bekommen möchtest."; err.style.display = "block"; return; }
+  const btn = $("submit");
+  btn.disabled = true; btn.textContent = "Einen Moment …";
+  try { await sendToBrevo(vorname, email); } catch (x) { console.warn(x); }
+  showResult(!!CONFIG.BREVO_FORM_URL);
+});
+
+/* Links aus CONFIG setzen */
+const setLinks = (cls, url) => document.querySelectorAll(cls).forEach(a => a.href = url);
+setLinks(".link-gespraech", CONFIG.LINK_KLARHEITSGESPRAECH);
+setLinks(".link-reset", CONFIG.LINK_FREQUENCY_RESET);
+setLinks(".link-impressum", CONFIG.LINK_IMPRESSUM);
+setLinks(".link-datenschutz", CONFIG.LINK_DATENSCHUTZ);
+</script>
+</body>
+</html>

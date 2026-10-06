@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FreeQuency Spirit | Anja Staufenbiel</title>
+<meta name="description" content="Für feinfühlige Unternehmerinnen, die für alle da sind. Zurück zu deiner Energie, deinem Wert und deinen eigenen Projekten.">
+<link rel="icon" type="image/png" href="bilder/favicon.png">
+<link rel="apple-touch-icon" href="bilder/logo.png">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,400,500,300i,400i|jost:300,400|allura:400" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2540;
+    --navy-2: #26324F;
+    --gold: #C2A05A;
+    --gold-deep: #86692B;
+    --gold-light: #E9D9B0;
+    --gold-pale: #F7F0E1;
+    --cream: #FCF9F3;
+    --sage: #5B6D50;
+    --text: #1B2540;
+    --text-soft: #3E4660;
+    --serif: "Cormorant Garamond", "Cormorant", "Bodoni 72", "Didot", "Baskerville", "Libre Baskerville", Georgia, serif;
+    --sans: "Jost", "Avenir Next", "Avenir", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    --script: "Allura", "Snell Roundhand", "Apple Chancery", "Brush Script MT", cursive;
+    --gold-grad: linear-gradient(120deg, #DCC38A 0%, #C2A05A 50%, #B08F48 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--cream); color: var(--text); font-family: var(--sans); font-weight: 400;
+    font-size: 17px; line-height: 1.85; letter-spacing: .01em; font-weight: 400; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; letter-spacing: .005em; }
+  h2 { font-size: clamp(36px, 5.6vw, 56px); margin-bottom: 24px; font-weight: 300; }
+  h3 { font-size: 28px; margin-bottom: 10px; font-weight: 400; }
+  .gold-text { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text;
+    color: transparent; font-style: italic; font-weight: 400; padding-right: .06em; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+  .narrow { max-width: 740px; }
+  section { padding: 110px 0; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 11px; font-weight: 400;
+    letter-spacing: .34em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 20px; }
+  .eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--gold); opacity: .7; }
+  .center { text-align: center; }
+  .center .eyebrow::after { content: ""; width: 40px; height: 1px; background: var(--gold); opacity: .7; }
+  p + p { margin-top: 16px; }
+  .lead { font-size: 19px; color: var(--text-soft); }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 26px auto; color: var(--gold); font-size: 13px; }
+  .ornament span { width: 90px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+  .btn { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: .22em;
+    text-transform: uppercase; text-decoration: none; padding: 18px 36px; border-radius: 999px;
+    transition: transform .3s, box-shadow .3s, background .3s, color .3s; cursor: pointer; border: none; text-align: center; }
+  .btn-gold { background: var(--gold-grad); color: #fff; box-shadow: 0 6px 20px rgba(194,160,90,.22); }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(194,160,90,.32); }
+  .btn-outline { border: 1px solid var(--gold); color: var(--gold-deep); background: transparent; }
+  .btn-outline:hover { background: var(--gold-pale); }
+  .btn-navy { border: 1px solid var(--navy); color: var(--navy); background: transparent; }
+  .btn-navy:hover { background: var(--navy); color: var(--cream); }
+  .featured .btn-navy, .voices-bg .btn-navy { border-color: var(--gold); color: var(--gold-light); }
+  .btn:focus-visible, .nav a:focus-visible, .burger:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+  
+  /* Navigation */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .4s, box-shadow .4s; }
+  header.scrolled { background: rgba(252,249,243,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(194,160,90,.35); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  .logo { font-family: var(--serif); font-size: 27px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: .02em; }
+  .logo b { color: var(--gold-deep); font-weight: 400; font-style: italic; }
+  .menu { display: flex; align-items: center; gap: 34px; list-style: none; }
+  .menu a { color: var(--navy); text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+  .menu a:hover { color: var(--gold-deep); }
+  .menu .btn { padding: 13px 24px; font-size: 11px; color: #fff; }
+  .burger { display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px; position: relative; }
+  .burger span, .burger span::before, .burger span::after { position: absolute; left: 10px; width: 24px; height: 1px; background: var(--navy); content: ""; transition: .3s; }
+  .burger span { top: 21px; } .burger span::before { top: -7px; left: 0; } .burger span::after { top: 7px; left: 0; }
+  .menu-open .burger span { background: transparent; }
+  .menu-open .burger span::before { top: 0; transform: rotate(45deg); }
+  .menu-open .burger span::after { top: 0; transform: rotate(-45deg); }
+
+  /* Hero, hell */
+  .hero { background: radial-gradient(ellipse at 85% 20%, rgba(220,195,138,.30), transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(220,195,138,.18), transparent 50%), var(--cream);
+    padding: 160px 0 110px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; left: 10%; right: 10%; bottom: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 60px; align-items: center; position: relative; }
+  .hero h1 { font-size: clamp(46px, 7.2vw, 86px); font-weight: 300; color: var(--navy); margin-bottom: 28px; line-height: 1.05; }
+  .hero .lead { max-width: 500px; margin-bottom: 40px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-btns .btn { padding: 18px 28px; }
+  .trust { margin-top: 50px; display: flex; gap: 44px; flex-wrap: wrap; }
+  .trust div { font-size: 12px; color: var(--text-soft); letter-spacing: .14em; text-transform: uppercase; }
+  .trust strong { display: block; font-family: var(--serif); font-size: 44px; font-weight: 300; color: var(--gold-deep);
+    line-height: 1; margin-bottom: 6px; letter-spacing: 0; text-transform: none; }
+
+  .arch { position: relative; aspect-ratio: 4/5; border-radius: 999px 999px 24px 24px; overflow: hidden; background: var(--gold-pale); }
+  .arch-frame { position: relative; padding: 16px; }
+  .arch-frame::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--gold); border-radius: 999px 999px 32px 32px; }
+  .arch-frame::after { content: "✦"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    color: var(--gold); font-size: 16px; background: var(--cream); padding: 0 10px; }
+  .arch img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--gold-deep); font-size: 13px; letter-spacing: .1em; text-align: center; padding: 20px; }
+  .ph svg { width: 36px; height: 36px; stroke: var(--gold); }
+
+  /* Kennst du das */
+  .mirror-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .checks { list-style: none; margin-top: 10px; }
+  .checks li { display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid rgba(194,160,90,.35); font-size: 17px; }
+  .checks li:first-child { border-top: 1px solid rgba(194,160,90,.35); }
+  .checks li::before { content: "✦"; color: var(--gold); font-size: 13px; line-height: 2.2; }
+
+  /* Wert */
+  .value { background: linear-gradient(160deg, #F3E6C8 0%, #EAD6A6 55%, #E2C88E 100%); position: relative; overflow: hidden; }
+  .value::before { content: "✦"; position: absolute; font-size: 380px; color: rgba(255,255,255,.28); right: -50px; top: -140px; line-height: 1; }
+  .value h2 { font-size: clamp(40px, 6.6vw, 68px); color: var(--navy); }
+  .value p { color: #3A3F4E; font-size: 18px; }
+  .value .eyebrow { color: var(--navy); }
+  .value .eyebrow::before, .value .eyebrow::after { background: var(--navy); opacity: .5; }
+
+  /* Quiz */
+  .quiz-card { background: var(--navy); color: var(--cream); border-radius: 36px; padding: 72px 40px; text-align: center; position: relative; overflow: hidden; }
+  .quiz-card::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(194,160,90,.4); border-radius: 26px; pointer-events: none; }
+  .quiz-card h2 { color: var(--cream); }
+  .quiz-card .lead { color: #CDD2DE; max-width: 560px; margin: 0 auto 32px; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-bottom: 40px; }
+  .chips span { color: var(--gold-light); font-family: var(--serif); font-style: italic; font-size: 21px; }
+  .chips span:not(:last-child)::after { content: "·"; margin-left: 22px; color: var(--gold); font-style: normal; }
+
+  /* So arbeite ich */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 60px; }
+  .step { padding: 10px 6px; text-align: center; }
+  .step .num { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold-deep);
+    display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic;
+    font-size: 34px; font-weight: 300; margin: 0 auto 26px; }
+  .step .tag { font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--sage); margin-bottom: 6px; }
+  .step p { color: var(--text-soft); font-size: 16px; }
+
+  /* Angebote */
+  .offers-bg { background: var(--gold-pale); }
+  .offers { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 26px; margin-top: 56px; align-items: stretch; }
+  .offer { background: rgba(255,255,255,.7); border-radius: 30px; padding: 44px 34px; display: flex; flex-direction: column; border: 1px solid rgba(194,160,90,.35); }
+  .offer.featured { background: var(--navy); color: var(--cream); border: 1px solid var(--gold); position: relative; }
+  .offer.featured h3 { color: var(--cream); }
+  .badge { position: absolute; top: -13px; left: 34px; background: var(--cream); color: var(--gold-deep); font-size: 10px;
+    letter-spacing: .26em; text-transform: uppercase; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--gold); }
+  .offer .meta { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px; }
+  .offer.featured .meta { color: var(--gold); }
+  .offer p { font-size: 16px; color: var(--text-soft); flex: 1; }
+  .offer.featured p { color: #CDD2DE; }
+  .offer ul { list-style: none; margin: 18px 0 26px; display: grid; gap: 8px; font-size: 15px; }
+  .offer ul li::before { content: "✦   "; color: var(--gold); font-size: 11px; }
+  .offer .btn { align-self: flex-start; margin-top: 18px; }
+  .freebie { margin-top: 36px; background: rgba(255,255,255,.75); border-radius: 30px; padding: 32px 36px; display: flex; gap: 28px;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; border: 1px solid var(--gold); }
+  .freebie-main { display: flex; gap: 28px; align-items: center; }
+  .freebie-img { width: 116px; height: 116px; border-radius: 50%; object-fit: cover; flex-shrink: 0; padding: 5px; border: 1px solid var(--gold); background: #fff; }
+  .freebie h3 { margin-bottom: 2px; }
+  .freebie p { color: var(--text-soft); font-size: 16px; }
+
+  /* Über mich */
+  .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: center; }
+  .signature { font-family: var(--script); font-size: 54px; color: var(--gold-deep); margin-top: 22px; line-height: 1.2; }
+
+  /* Manifest */
+  .manifest { background: var(--gold-pale); padding: 90px 0; }
+  .manifest-text { font-family: var(--serif); font-size: clamp(32px, 5vw, 50px); font-weight: 300; line-height: 1.3; color: var(--navy); }
+  .manifest-sub { font-size: 18px; color: var(--text-soft); margin-top: 22px; }
+
+  /* Stimmen */
+  .voices-bg { background: var(--navy); color: var(--cream); }
+  .voices-bg h2 { color: var(--cream); }
+  .voices-bg .eyebrow { color: var(--gold-light); }
+  .voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 56px; }
+  .voice { border-radius: 30px; padding: 36px 30px; border: 1px solid rgba(194,160,90,.35); }
+  .voice .q { font-family: var(--serif); font-size: 70px; line-height: .6; color: var(--gold); display: block; margin-bottom: 8px; }
+  .voice p { font-family: var(--serif); font-size: 22px; font-style: italic; font-weight: 300; color: #E6E8EE; line-height: 1.5; }
+  .voice .who { margin-top: 20px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .placeholder-note { opacity: .55; }
+
+  /* Abschluss */
+  .final { text-align: center; background: radial-gradient(ellipse at top, rgba(220,195,138,.35), transparent 65%), var(--cream); }
+  .final h2 { font-size: clamp(36px, 5.6vw, 58px); max-width: 880px; margin: 0 auto 26px; }
+  .final .lead { max-width: 600px; margin: 0 auto 38px; }
+  .final .small { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); margin-top: 18px; }
+
+  footer { background: var(--navy); color: #AEB5C6; padding: 64px 0 40px; font-size: 14px; }
+  footer .logo { color: var(--cream); }
+  footer .logo b { color: var(--gold); }
+  .foot { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 34px; }
+  .foot .logo { display: block; margin-bottom: 10px; }
+  .foot ul { list-style: none; display: grid; gap: 8px; }
+  .foot a { text-decoration: none; } .foot a:hover { color: var(--gold-light); }
+  .disclaimer { border-top: 1px solid rgba(194,160,90,.25); padding-top: 24px; font-size: 12px; text-align: center; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 920px) {
+    .hero-grid, .mirror-grid, .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .hero-photo, .about-grid .arch-frame { max-width: 360px; margin: 0 auto; width: 100%; }
+    .steps, .offers, .voices { grid-template-columns: 1fr; }
+    .burger { display: block; }
+    .menu { position: fixed; inset: 84px 0 auto 0; background: var(--cream); flex-direction: column; gap: 0;
+      padding: 10px 22px 30px; border-bottom: 1px solid var(--gold); display: none; }
+    .menu li { width: 100%; border-bottom: 1px solid rgba(194,160,90,.2); }
+    .menu li:last-child { border: none; padding-top: 18px; }
+    .menu a { display: block; padding: 15px 0; }
+    .menu-open .menu { display: flex; }
+    header.menu-open { background: var(--cream); }
+  }
+  @media (max-width: 560px) {
+    section { padding: 80px 0; }
+    .hero { padding: 120px 0 80px; }
+    .hero-btns .btn { width: 100%; }
+    .quiz-card { padding: 56px 24px; }
+    .offer { padding: 38px 26px; }
+    .freebie { padding: 28px 22px; }
+    .freebie .btn { width: 100%; }
+    .freebie-main { flex-direction: column; text-align: center; gap: 16px; }
+    .chips span:not(:last-child)::after { display: none; }
+  }
+
+  /* =========== VERTRAUENSLEISTE =========== */
+  .trustbar { background: var(--navy); color: var(--gold-light); padding: 22px 0; }
+  .trustbar .wrap { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 26px;
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+  .trustbar .tb-label { color: var(--gold); font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: .02em; font-size: 20px; }
+  .trustbar .dot { color: var(--gold); font-size: 10px; }
+
+  /* =========== GESCHENK =========== */
+  .gift { margin-top: 40px; background: rgba(255,255,255,.75); border: 1px solid var(--gold); border-radius: 36px;
+    padding: 56px 56px; display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: center; }
+  .phone { width: 250px; border-radius: 38px; background: var(--navy); padding: 12px; box-shadow: 0 30px 60px rgba(27,37,64,.22);
+    position: relative; transform: rotate(-3deg); }
+  .phone::before { content: ""; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 70px; height: 6px; border-radius: 6px; background: #0F1628; z-index: 2; }
+  .screen { background: linear-gradient(180deg, #FBF5E8, #F1E3C2); border-radius: 28px; padding: 44px 18px 26px; text-align: center; }
+  .cover { width: 100%; aspect-ratio: 1; border-radius: 18px; object-fit: cover; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(27,37,64,.18); }
+  .pl-title { font-family: var(--serif); font-size: 22px; color: var(--navy); line-height: 1.1; }
+  .pl-sub { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); margin: 6px 0 16px; }
+  .pl-bar { height: 3px; background: rgba(27,37,64,.12); border-radius: 3px; overflow: hidden; }
+  .pl-bar span { display: block; width: 38%; height: 100%; background: var(--gold-grad); }
+  .pl-time { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-soft); margin-top: 6px; }
+  .pl-ctrl { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 10px; color: var(--navy); font-size: 14px; }
+  .pl-play { width: 46px; height: 46px; border-radius: 50%; background: var(--gold-grad); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; padding-left: 3px; }
+  .gift h3 { font-size: clamp(32px, 4.4vw, 44px); font-weight: 300; margin-bottom: 14px; }
+  .gift ul { list-style: none; margin: 20px 0 30px; display: grid; gap: 10px; }
+  .gift li::before { content: "✦   "; color: var(--gold); font-size: 11px; }
+
+  /* =========== TERMINE =========== */
+  .events { margin-top: 50px; border-top: 1px solid rgba(194,160,90,.4); }
+  .event { display: grid; grid-template-columns: 120px 1fr auto; gap: 30px; align-items: center; padding: 28px 0;
+    border-bottom: 1px solid rgba(194,160,90,.4); }
+  .ev-date { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--gold-deep); line-height: 1; }
+  .ev-date small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); margin-top: 6px; }
+  .ev-type { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); }
+  .ev-title { font-family: var(--serif); font-size: 26px; color: var(--navy); line-height: 1.2; }
+  .events-empty { text-align: center; padding: 40px 0; color: var(--text-soft); }
+
+  /* =========== IMPULSE =========== */
+  .media { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 50px; }
+  .media a { display: flex; flex-direction: column; text-decoration: none; background: #fff; border: 1px solid rgba(194,160,90,.35);
+    border-radius: 26px; padding: 30px 26px; transition: transform .3s, box-shadow .3s; }
+  .media a:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(27,37,64,.08); }
+  .m-icon { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center;
+    justify-content: center; color: var(--gold-deep); margin-bottom: 20px; }
+  .m-icon svg { width: 22px; height: 22px; }
+  .m-type { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); margin-bottom: 4px; }
+  .media h3 { font-size: 24px; margin-bottom: 8px; }
+  .media p { font-size: 15px; color: var(--text-soft); flex: 1; }
+  .m-more { margin-top: 18px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); }
+  .voices-more { text-align: center; margin-top: 44px; }
+
+  @media (max-width: 920px) {
+    .gift { grid-template-columns: 1fr; padding: 44px 26px; gap: 40px; justify-items: center; text-align: center; }
+    .gift ul { justify-items: center; }
+    .media { grid-template-columns: 1fr 1fr; }
+    .event { grid-template-columns: 90px 1fr; gap: 6px 20px; }
+    .event .btn { grid-column: 1 / -1; justify-self: start; margin-top: 10px; }
+  }
+  @media (max-width: 560px) { .media { grid-template-columns: 1fr; } .phone { width: 220px; } }
+
+  /* Echte Nachrichten als Collage */
+  .chats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 56px auto 0; max-width: 900px;
+    grid-template-areas: "a c" "b c" "d d"; align-items: start; }
+  .chat:nth-child(1) { grid-area: a; } .chat:nth-child(2) { grid-area: b; }
+  .chat:nth-child(3) { grid-area: c; } .chat:nth-child(4) { grid-area: d; }
+  .chat { margin: 0; background: #fff; border-radius: 18px; padding: 10px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.25); position: relative; }
+  .chat:nth-child(odd) { transform: rotate(-1.2deg); }
+  .chat:nth-child(even) { transform: rotate(1deg); }
+  .chat img { width: 100%; border-radius: 10px; }
+  .chat::before { content: "✦"; position: absolute; top: -12px; left: 22px; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--gold-grad); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; }
+  .chat.wide { column-span: none; }
+  .chats-note { text-align: center; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(233,217,176,.65); margin-top: 6px; }
+  @media (max-width: 760px) { .chats { grid-template-columns: 1fr; grid-template-areas: "a" "b" "c" "d"; } .chat:nth-child(odd), .chat:nth-child(even) { transform: none; } }
+
+  /* Frequenz erklärt */
+  .freq-grid { display: grid; grid-template-columns: 1.3fr .9fr; gap: 70px; align-items: center; }
+  .freq-points { list-style: none; display: grid; gap: 18px; }
+  .freq-points li { background: #fff; border: 1px solid rgba(194,160,90,.35); border-radius: 24px; padding: 24px 26px; font-size: 15px; color: var(--text-soft); }
+  .freq-points strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 24px; color: var(--navy); margin-bottom: 2px; }
+  .freq-points strong::before { content: "✦  "; color: var(--gold); font-size: 13px; vertical-align: middle; }
+  .offers-2 { grid-template-columns: 1.3fr 1fr; max-width: 920px; margin-left: auto; margin-right: auto; }
+  #quiz .gift { margin-top: 34px; }
+  #so-arbeite-ich { padding-top: 40px !important; }
+  /* FAQ */
+  .faq { margin-top: 44px; border-top: 1px solid rgba(194,160,90,.4); }
+  .faq-item { border-bottom: 1px solid rgba(194,160,90,.4); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 24px 44px 24px 0; position: relative;
+    font-family: var(--serif); font-size: 25px; color: var(--navy); line-height: 1.3; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    font-family: var(--sans); font-weight: 300; font-size: 26px; color: var(--gold-deep); transition: transform .3s; }
+  .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-item summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  .faq-item p { padding: 0 0 26px; color: var(--text-soft); max-width: 640px; }
+  @media (max-width: 920px) { .freq-grid { grid-template-columns: 1fr; gap: 40px; } .offers-2 { grid-template-columns: 1fr; } }
+
+  /* Blick in die Analyse */
+  .peek { margin-top: 90px; }
+  .peek-title { font-size: clamp(28px, 4vw, 40px); font-weight: 300; }
+  .peek-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 26px; margin-top: 40px; align-items: start; }
+  .shot { margin: 0; background: #fff; border-radius: 22px; overflow: hidden; border: 1px solid rgba(194,160,90,.35);
+    box-shadow: 0 18px 44px rgba(27,37,64,.08); }
+  .shot-wide { grid-column: 1 / -1; }
+  .shot-bar { display: flex; gap: 7px; padding: 12px 16px; background: var(--gold-pale); border-bottom: 1px solid rgba(194,160,90,.25); }
+  .shot-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--gold-light); }
+  .shot img { width: 100%; padding: 14px 16px 6px; }
+  .shot figcaption { padding: 4px 20px 18px; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--gold-deep); }
+  .peek-note { text-align: center; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); margin-top: 18px; }
+  @media (max-width: 760px) { .peek-grid { grid-template-columns: 1fr; } .peek { margin-top: 60px; } }
+
+  .price { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin: -6px 0 4px; }
+  .price strong { font-family: var(--serif); font-weight: 300; font-size: 38px; letter-spacing: 0; color: var(--gold); margin-left: 6px; }
+
+  /* Video */
+  .video-wrap { display: grid; grid-template-columns: 380px 1fr; gap: 60px; align-items: center; max-width: 900px; margin: 56px auto 0; }
+  .video-card { border-radius: 28px; overflow: hidden; border: 1px solid var(--gold); padding: 8px; background: rgba(255,255,255,.04); }
+  .video-card video { display: block; width: 100%; aspect-ratio: 4/5; border-radius: 22px; background: #000; object-fit: cover; }
+  .video-text h3 { color: var(--cream); font-size: clamp(28px, 3.6vw, 38px); font-weight: 300; margin-bottom: 14px; }
+  .video-text p { color: #D6DAE4; }
+  .video-meta { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold) !important; margin-top: 18px; }
+  @media (max-width: 820px) { .video-wrap { grid-template-columns: 1fr; gap: 30px; text-align: center; } .video-card { max-width: 360px; margin: 0 auto; } }
+  .offers-bg .arch-frame::after { background: var(--gold-pale); }
+
+  .seen { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; color: var(--gold-deep); margin-top: 22px !important; }
+
+  .final-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: center; text-align: left; }
+  .final .final-text h2 { margin: 0 0 24px; max-width: none; }
+  .final .final-text .lead { margin: 0 0 34px; max-width: 560px; }
+  .final .final-text .eyebrow::after { display: none; }
+  .final-photo .arch-frame { max-width: 360px; margin-left: auto; }
+  @media (max-width: 920px) {
+    .final-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .final-photo { order: -1; }
+    .final-photo .arch-frame { max-width: 280px; margin: 0 auto; }
+    .final .final-text .lead { margin: 0 auto 34px; }
+    .final .final-text .eyebrow::after { display: block; }
+  }
+
+  .hl { font-weight: 500; color: var(--navy); }
+  .gift-sub { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--gold-deep); margin: -6px 0 14px; }
+  .tg { display: flex; gap: 40px; align-items: center; justify-content: space-between; background: var(--navy); color: var(--cream);
+    border-radius: 30px; padding: 40px 44px; margin-top: 50px; border: 1px solid var(--gold); }
+  .tg h3 { color: var(--cream); font-size: clamp(26px, 3.2vw, 34px); font-weight: 300; }
+  .tg p { color: #D6DAE4; max-width: 560px; }
+  .tg .eyebrow { color: var(--gold-light); }
+  .tg .btn { flex-shrink: 0; }
+  @media (max-width: 820px) { .tg { flex-direction: column; align-items: flex-start; padding: 34px 26px; gap: 24px; } }
+
+  .method-steps { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-deep); margin: -8px 0 22px; }
+  .claim { font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--gold-deep); margin: -10px 0 22px; }
+  .foot-claim { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--gold-light); margin-top: 4px; }
+  .cmp { max-width: 940px; margin: 50px auto 0; }
+  .cmp-head { display: grid; grid-template-columns: 1fr 50px 1fr; gap: 20px; padding: 0 28px 14px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); }
+  .cmp-head div:last-child { color: var(--gold-deep); }
+  .cmp-row { display: grid; grid-template-columns: 1fr 50px 1fr; gap: 20px; align-items: center; background: #fff; border: 1px solid rgba(194,160,90,.3);
+    border-radius: 22px; padding: 22px 28px; margin-bottom: 14px; }
+  .cmp-old { color: var(--text-soft); font-size: 16px; }
+  .cmp-arrow { text-align: center; color: var(--gold); font-size: 14px; }
+  .cmp-new { font-family: var(--serif); font-size: 22px; line-height: 1.3; color: var(--navy); }
+  @media (max-width: 760px) {
+    .cmp-head { display: none; }
+    .cmp-row { grid-template-columns: 1fr; gap: 6px; padding: 22px 22px; }
+    .cmp-arrow { text-align: left; }
+    .cmp-row + .cmp-row .cmp-old::before { display: none; }
+    .cmp-old::before { content: "Was du vielleicht kennst"; display: block; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); margin-bottom: 4px; }
+  }
+
+  .offers-3 { grid-template-columns: .85fr 1.15fr 1fr; align-items: center; }
+  .offers-3 .offer { align-self: stretch; }
+  .offer-photo .arch-frame { max-width: 340px; margin: 0 auto; }
+  @media (max-width: 920px) { .offers-3 { grid-template-columns: 1fr; } .offer-photo .arch-frame { max-width: 280px; } }
+
+  /* Manifest als Bildband */
+  .manifest-photo { position: relative; padding: 0; min-height: 640px; display: flex; align-items: center; overflow: hidden; background: var(--navy); }
+  .manifest-bg { position: absolute; top: 0; left: 0; bottom: 0; width: 64%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+  .manifest-photo::before { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(27,37,64,0) 0%, rgba(27,37,64,0) 46%, rgba(27,37,64,.85) 58%, var(--navy) 64%); }
+  .manifest-photo .wrap { position: relative; z-index: 2; width: 100%; }
+  .manifest-inner { max-width: 440px; padding: 90px 0; margin-left: auto; }
+  .manifest-inner .ornament { justify-content: flex-start; margin: 0 0 26px; }
+  .manifest-photo .manifest-text { color: var(--cream); text-align: left; font-size: clamp(30px, 3.2vw, 42px); }
+  .manifest-photo .manifest-text .gold-text { background: linear-gradient(120deg,#F3DFA8,#D9BC7A); -webkit-background-clip: text; background-clip: text; }
+  .manifest-photo .manifest-sub { color: #E4E6EC; text-align: left; }
+  @media (max-width: 820px) {
+    .manifest-photo { display: block; min-height: 0; }
+    .manifest-bg { position: relative; width: 100%; height: 320px; object-position: 35% 50%; }
+    .manifest-photo::before { display: none; }
+    .manifest-inner { padding: 50px 0 70px; margin-left: 0; }
+  }
+
+  .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; align-items: start; }
+  .faq-grid .faq { margin-top: 30px; }
+  .faq-side { position: sticky; top: 110px; }
+  .faq-side .arch-frame { max-width: 320px; }
+  .faq-note { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; color: var(--gold-deep); margin-top: 22px; max-width: 320px; text-align: center; }
+  .faq-more { margin-top: 26px; font-size: 15px; color: var(--text-soft); }
+  .faq-more a { color: var(--gold-deep); }
+  @media (max-width: 920px) {
+    .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+    .faq-side { position: static; }
+    .faq-side .arch-frame, .faq-note { max-width: 260px; margin-left: auto; margin-right: auto; }
+  }
+
+  /* Fließende Wellen-Übergänge */
+  section, footer { position: relative; }
+  .wave { position: absolute; top: -1px; left: 0; right: 0; height: 64px; z-index: 3; pointer-events: none; background: var(--prev);
+    -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  .wave-1 { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V18%20C1180%2C70%20940%2C62%20720%2C34%20C500%2C6%20260%2C4%200%2C42%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V18%20C1180%2C70%20940%2C62%20720%2C34%20C500%2C6%20260%2C4%200%2C42%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); }
+  .wave-2 { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V42%20C1180%2C4%20940%2C6%20720%2C34%20C500%2C62%20260%2C70%200%2C18%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V42%20C1180%2C4%20940%2C6%20720%2C34%20C500%2C62%20260%2C70%200%2C18%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); }
+  footer { padding-top: 110px !important; }
+  @media (max-width: 560px) { .wave { height: 34px; } }
+
+  .freq-illu { margin: 0 0 22px; text-align: center; }
+  .freq-illu svg { width: 100%; height: auto; display: block; }
+  .freq-illu figcaption { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--gold-deep); margin-top: 6px; }
+
+  .logo { display: inline-flex; align-items: center; gap: 10px; }
+  .logo-full { height: 58px; width: auto; display: block; }
+  .foot-logo { display: inline-block; margin-bottom: 14px; }
+  .foot-logo img { width: 150px; height: auto; }
+  @media (max-width: 560px) { .logo-full { height: 46px; } }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<header id="header">
+  <nav class="wrap nav" aria-label="Hauptnavigation">
+    <a href="#" class="logo"><img class="logo-full" src="bilder/logo-quer.png" alt="FreeQuency Spirit"></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#so-arbeite-ich">So arbeite ich</a></li>
+      <li><a href="#wege">Begleitung</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#fragen">Fragen</a></li>
+      <li><a href="#" class="btn btn-gold link-gespraech">Klarheitsgespräch</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Für feinfühlige Unternehmerinnen, die für alle da sind</div>
+      <h1>Du gibst so viel. Zeit, dass etwas <span class="gold-text">zurückfließt.</span></h1>
+      <p class="lead">Mit Frequenzarbeit und Kinesiologie begleite ich dich zurück zu deiner Energie, deinem Wert und deinen eigenen Projekten. Bodenständig, klar und mit ganz viel Tiefe.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-gold link-gespraech">Klarheitsgespräch buchen</a>
+        <a href="quiz.html" class="btn btn-outline">Zum Energie-Quiz</a>
+      </div>
+      <div class="trust">
+        <div><strong>10+</strong>Jahre Erfahrung</div>
+        <div><strong>500+</strong>begleitete Menschen</div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="arch-frame">
+        <div class="arch">
+          <img src="bilder/anja-titel.jpg" alt="Anja Staufenbiel lächelnd im Gras, ein Grashalm vor dem Gesicht" onerror="this.remove()">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KENNST DU DAS ============ -->
+<section>
+  <div class="wrap mirror-grid">
+    <div class="reveal">
+      <div class="eyebrow">Kennst du das?</div>
+      <h2>Für alle da. Nur nicht für dich.</h2>
+      <p class="lead">Du spürst, was dein Gegenüber braucht, bevor es den ersten Satz zu Ende gesprochen hat. Deine Kundinnen gehen mit leichtem Herzen nach Hause. Du gehst mit leerem Akku ins Bett.</p>
+      <p>Dein Kalender ist voll, aber dein eigenes Projekt liegt seit Monaten in der Schublade. Das Buch. Das Gruppenprogramm. Die Preiserhöhung, die du dir schon dreimal vorgenommen hast. Dir fehlt nicht das Können. Dir fehlt die Kraft, die du längst an andere verschenkt hast. Und vielleicht auch die Erlaubnis, dich selbst mal an die erste Stelle zu setzen.</p>
+      <p class="seen">Du bist nicht kaputt. Du bist nur seit Jahren auf Empfang für alle anderen.</p>
+    </div>
+    <ul class="checks reveal">
+      <li>Du antwortest abends um zehn noch auf Sprachnachrichten von Kundinnen.</li>
+      <li>Wenn du deinen Preis sagen sollst, wird deine Stimme ganz leise.</li>
+      <li>Du hast den Beitrag geschrieben. Und dann wieder gelöscht.</li>
+      <li>Dein Herzensprojekt ist zu 80 Prozent fertig. Seit einem Jahr.</li>
+      <li>Du hältst für alle den Raum. Wer hält ihn eigentlich für dich?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ÜBER MICH ============ -->
+<section id="ueber-mich" class="offers-bg">
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap about-grid">
+    <div class="arch-frame reveal">
+      <div class="arch light">
+        <img src="bilder/anja-portrait.jpg" alt="Anja Staufenbiel auf einer Holzbank im Wald" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Über mich</div>
+      <h2>Aloha, ich bin Anja.</h2>
+      <p class="claim">Ich bringe Gebenden das Empfangen bei.</p>
+      <p class="lead">Ich kenne das Vollgas-Leben. In meiner Anstellung habe ich immer alles gegeben. Bis ich gemerkt habe: Ich gebe viel zu viel. Und bekomme zu wenig von dem, was mir am wichtigsten ist. Freiheit.</p>
+      <p>Dabei bin ich mit vielen Ängsten groß geworden. Trotzdem bin ich losgegangen, ohne fertigen Plan. Als Erste in meiner Familie wurde ich Unternehmerin und bin ausgewandert. Und ich habe gelernt: Wenn du losgehst, zeigt sich der Weg.</p>
+      <p>Heute begleite ich seit über zehn Jahren Frauen, die spüren, dass so viel mehr möglich ist, und trotzdem noch mit angezogener Handbremse fahren. Alles, was ich weitergebe, habe ich selbst erlebt und erprobt. Auf drei Ebenen: Körper, Geist und Seele.</p>
+      <a href="meine-geschichte.html" class="btn btn-navy" style="margin-top:22px">Meine ganze Geschichte</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STIMMEN ============ -->
+<section class="voices-bg">
+  <div class="wave wave-2" style="--prev:#F7F0E1" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Stimmen</div>
+      <h2>Das sagen meine Kundinnen</h2>
+    </div>
+    <div class="video-wrap reveal">
+      <div class="video-card">
+        <video controls playsinline preload="none" poster="bilder/video-poster.jpg">
+          <source src="video/kundinnen-stimmen.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-text">
+        <h3>Hör selbst, wie es ihnen heute geht</h3>
+        <p>Sechs Frauen erzählen in ihren eigenen Worten, was sich für sie verändert hat. Mehr Klarheit, mehr Mut, ein Business, das leichter läuft. Ehrlich und mit ganz viel Herz.</p>
+        <p class="video-meta">2:40 Minuten · mit Untertiteln</p>
+      </div>
+    </div>
+    <div class="chats">
+      <figure class="chat reveal"><img src="bilder/stimme-handbremse.jpg" alt="Nachricht einer Kundin: Es haben sich beruflich ganz plötzlich unglaubliche Veränderungen auf allen Ebenen ergeben. Als hätte jemand endlich die Handbremse gelöst, die ich so lange nicht gefunden habe. Fantastisch!" loading="lazy"></figure>
+      <figure class="chat reveal"><img src="bilder/stimme-beruflich.jpg" alt="Nachricht einer Kundin: Ich hab beruflich was geschafft, was ich lange vor mir hergeschoben hatte und nie wirklich funktioniert hat. Jetzt ging es total leicht." loading="lazy"></figure>
+      <figure class="chat reveal"><img src="bilder/stimme-leichtigkeit.jpg" alt="Nachricht einer Kundin: Die neuen Frequenzen bringen so eine schöne Leichtigkeit mit sich. Ich habe das Gefühl, da öffnen sich neue Türen und es ist eine grenzenlose Weite vorhanden. Dankeschön, liebe Anja." loading="lazy"></figure>
+      <figure class="chat reveal"><img src="bilder/stimme-bei-mir.jpg" alt="Nachricht einer Kundin: Ich hab die Frequenzen gehört und die Affirmationen gelesen. Ich fühle mich seitdem leicht und ganz bei mir. Vielen lieben Dank!" loading="lazy"></figure>
+    </div>
+    <p class="chats-note">Echte Nachrichten, mit Erlaubnis geteilt</p>
+    <div class="voices-more reveal"><a href="#" class="btn btn-navy link-geschichten">Alle Geschichten ansehen</a></div>
+  </div>
+</section>
+
+<!-- ============ WERT ============ -->
+<section class="value">
+  <div class="wave wave-1" style="--prev:#1B2540" aria-hidden="true"></div>
+  <div class="wrap narrow center reveal">
+    <div class="eyebrow">Über Wert und Geld</div>
+    <h2>Dein Wert ist kein Sonderpreis.</h2>
+    <p>Wie oft landen bei dir genau die Kundinnen, die gerade nicht zahlen können? Das ist kein Zufall. Wer innerlich glaubt, nicht so viel wert zu sein, baut sich unbewusst ein Business, das genau das bestätigt.</p>
+    <p>Dabei ist das Geld meistens gar nicht das Problem. Du bist großzügig mit allen anderen. Nur bei dir selbst wirst du plötzlich sparsam. Die Frage ist nicht, ob du es dir leisten kannst. Sondern ob du es dir erlaubst.</p>
+    <p>Die gute Nachricht: Muster sind keine Charaktereigenschaften. Sie sind gelernt. Und was gelernt ist, darf sich verändern. Wenn sich dein innerer Wert verschiebt, verschiebt sich auch, wer zu dir kommt und was du annehmen kannst.</p>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz">
+  <div class="wave wave-2" style="--prev:#E2C88E" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="quiz-card reveal">
+      <div class="eyebrow" style="color:var(--gold-light)">Das Energie-Quiz</div>
+      <h2>Wo fließt deine Energie hin?</h2>
+      <p class="lead">Acht Fragen, zwei Minuten. Finde heraus, welches Muster dir gerade die meiste Kraft raubt. Die Rückfluss-Session bekommst du als Geschenk dazu.</p>
+      <div class="chips">
+        <span>Die Allzeit-Bereite</span><span>Die Leise Leuchtende</span><span>Die Leere Quelle</span><span>Die Fast-Fertige</span><span>Die Dauerdenkerin</span>
+      </div>
+      <a href="quiz.html" class="btn btn-gold">Quiz starten</a>
+    </div>
+  <div class="gift reveal" id="geschenk">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <img class="cover" src="bilder/rueckfluss-cover.jpg" alt="">
+          <div class="pl-title">Die Rückfluss-Session</div>
+          <div class="pl-sub">Anja Staufenbiel</div>
+          <div class="pl-bar"><span></span></div>
+          <div class="pl-time"><span>2:41</span><span>7:00</span></div>
+          <div class="pl-ctrl"><span>↺</span><span class="pl-play">▶</span><span>♡</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Mein Geschenk für dich</div>
+        <h3>Die Rückfluss-Session</h3>
+        <p class="gift-sub">Deine 7-Minuten-Frequenz-Auszeit zum Anhören</p>
+        <p class="lead">Kopfhörer auf, Augen zu, sieben Minuten nur für dich. Du hörst sanfte Musik, darunter liegen Frequenzen, die ich für genau diesen Moment zusammengestellt habe: runterkommen, durchatmen, auftanken. Du musst nichts tun, nichts leisten, nichts verstehen. Nur empfangen.</p>
+        <ul>
+          <li>Du bekommst sie als Dankeschön für das Energie-Quiz</li>
+          <li>Dein Link ist ein ganzes Jahr gültig, hör sie, so oft du magst</li>
+          <li>Die Musik klingt jedes Mal ein bisschen anders</li>
+        </ul>
+        <a href="#" class="btn btn-gold link-freebie">Quiz machen und Session sichern</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREQUENZ ============ -->
+<section id="frequenz">
+  <div class="wrap freq-grid">
+    <div class="reveal">
+      <div class="eyebrow">Frequenzarbeit, einfach erklärt</div>
+      <h2>Alles schwingt. Auch du.</h2>
+      <p class="lead">Du kennst das: Du betrittst einen Raum und fühlst dich sofort wohl. Oder du triffst jemanden und bist danach erschöpft, obwohl ihr nur über das Wetter geredet habt. Du spürst Schwingung längst, jeden Tag. Frequenzarbeit macht genau das bewusst nutzbar.</p>
+      <p>Stell dir dein Nervensystem wie ein Radio vor. Wenn es den ganzen Tag auf dem Sender der anderen läuft, hörst du deine eigene Musik irgendwann nicht mehr. Alte Erfahrungen, Dauerstress und übernommene Glaubenssätze sorgen für zusätzliches Rauschen. In der Frequenzanalyse schauen wir, welche Themen bei dir gerade am lautesten sind. Mit passenden Frequenzen und Impulsen begleite ich dich dann zurück auf deinen eigenen Sender.</p>
+      <p><strong class="hl">Wie die Analyse entsteht:</strong> Ich brauche von dir nur deinen vollständigen Namen, dein Geburtsdatum und deinen Geburtsort. Diese Kombination ist so einzigartig wie ein Fingerabdruck. Daraus wird mit einem mathematischen System dein persönlicher Biorhythmus berechnet. Er öffnet den Blick auf deine emotionale, mentale, geistige und körperliche Ebene und zeigt, welche Muster dort gerade unbewusst wirken. Und weil das System rechnet statt rät, kommt bei gleichen Angaben immer dasselbe Ergebnis heraus. Genau das finde ich daran so spannend.</p>
+    </div>
+    <div class="freq-right">
+    <figure class="freq-illu reveal">
+      <svg viewBox="0 40 440 125" role="img" aria-label="Goldene Linien, die links unruhig durcheinanderlaufen und sich nach rechts zu einer ruhigen Welle ordnen">
+        <defs><linearGradient id="fg" x1="0" x2="1"><stop offset="0" stop-color="#C2A05A" stop-opacity=".7"/><stop offset="1" stop-color="#A8873F"/></linearGradient></defs>
+        <g fill="none" stroke="url(#fg)" stroke-linecap="round"><path d="M10.0,97.9 L13.0,105.9 L16.0,110.0 L19.0,117.0 L22.0,121.8 L25.0,121.5 L28.0,124.5 L31.0,133.6 L34.0,130.8 L37.0,131.5 L40.0,137.5 L43.0,132.5 L46.0,133.5 L49.0,128.1 L52.0,126.1 L55.0,118.4 L58.0,117.6 L61.0,114.5 L64.0,106.8 L67.0,103.2 L70.0,97.5 L73.0,88.2 L76.0,88.3 L79.0,82.9 L82.0,77.1 L85.0,72.1 L88.0,75.2 L91.0,70.8 L94.0,71.3 L97.0,72.0 L100.0,71.3 L103.0,73.7 L106.0,72.3 L109.0,77.0 L112.0,77.8 L115.0,83.9 L118.0,87.1 L121.0,86.5 L124.0,90.6 L127.0,95.0 L130.0,102.7 L133.0,103.7 L136.0,108.0 L139.0,109.6 L142.0,113.3 L145.0,115.1 L148.0,116.9 L151.0,119.5 L154.0,120.5 L157.0,122.5 L160.0,121.8 L163.0,122.6 L166.0,121.8 L169.0,121.5 L172.0,119.3 L175.0,116.4 L178.0,117.3 L181.0,116.1 L184.0,114.2 L187.0,111.5 L190.0,110.2 L193.0,107.1 L196.0,107.1 L199.0,104.7 L202.0,102.3 L205.0,100.2 L208.0,100.3 L211.0,99.0 L214.0,95.6 L217.0,95.4 L220.0,93.1 L223.0,91.2 L226.0,89.9 L229.0,89.1 L232.0,87.8 L235.0,85.4 L238.0,84.8 L241.0,83.0 L244.0,82.7 L247.0,81.5 L250.0,81.3 L253.0,81.0 L256.0,80.5 L259.0,81.0 L262.0,81.1 L265.0,81.8 L268.0,83.3 L271.0,84.6 L274.0,86.6 L277.0,88.8 L280.0,91.3 L283.0,93.9 L286.0,96.8 L289.0,99.9 L292.0,103.0 L295.0,106.1 L298.0,109.2 L301.0,112.0 L304.0,114.7 L307.0,117.2 L310.0,119.3 L313.0,121.0 L316.0,122.4 L319.0,123.4 L322.0,123.9 L325.0,124.0 L328.0,123.6 L331.0,122.9 L334.0,121.7 L337.0,120.1 L340.0,118.2 L343.0,115.9 L346.0,113.3 L349.0,110.5 L352.0,107.5 L355.0,104.4 L358.0,101.2 L361.0,97.9 L364.0,94.7 L367.0,91.6 L370.0,88.7 L373.0,85.9 L376.0,83.4 L379.0,81.2 L382.0,79.4 L385.0,77.9 L388.0,76.9 L391.0,76.2 L394.0,76.0 L397.0,76.2 L400.0,76.9 L403.0,78.0 L406.0,79.4 L409.0,81.3 L412.0,83.5 L415.0,86.0 L418.0,88.7 L421.0,91.7 L424.0,94.8 L427.0,98.0 L430.0,101.2" stroke-width="1.5" opacity="0.55"/><path d="M10.0,142.5 L13.0,148.5 L16.0,148.1 L19.0,139.6 L22.0,130.8 L25.0,125.0 L28.0,108.6 L31.0,95.5 L34.0,85.1 L37.0,76.0 L40.0,62.3 L43.0,57.5 L46.0,54.3 L49.0,58.1 L52.0,58.3 L55.0,67.8 L58.0,71.4 L61.0,83.2 L64.0,97.0 L67.0,110.4 L70.0,118.1 L73.0,125.8 L76.0,132.2 L79.0,139.4 L82.0,138.5 L85.0,140.9 L88.0,136.5 L91.0,125.0 L94.0,116.6 L97.0,109.7 L100.0,97.7 L103.0,88.2 L106.0,75.8 L109.0,66.6 L112.0,61.8 L115.0,61.5 L118.0,57.9 L121.0,60.3 L124.0,65.0 L127.0,71.3 L130.0,79.0 L133.0,90.2 L136.0,95.2 L139.0,103.0 L142.0,115.1 L145.0,121.0 L148.0,126.0 L151.0,126.3 L154.0,129.4 L157.0,128.4 L160.0,123.2 L163.0,121.8 L166.0,117.9 L169.0,112.7 L172.0,107.8 L175.0,103.1 L178.0,100.1 L181.0,97.7 L184.0,96.2 L187.0,97.8 L190.0,98.0 L193.0,101.3 L196.0,101.7 L199.0,106.6 L202.0,108.6 L205.0,111.4 L208.0,112.9 L211.0,113.7 L214.0,113.0 L217.0,110.8 L220.0,110.1 L223.0,106.2 L226.0,102.8 L229.0,99.2 L232.0,94.6 L235.0,90.0 L238.0,86.5 L241.0,82.3 L244.0,78.9 L247.0,76.4 L250.0,75.3 L253.0,74.1 L256.0,74.2 L259.0,74.6 L262.0,75.8 L265.0,77.8 L268.0,80.1 L271.0,82.4 L274.0,85.3 L277.0,88.3 L280.0,91.2 L283.0,94.3 L286.0,97.2 L289.0,100.4 L292.0,103.5 L295.0,106.4 L298.0,109.3 L301.0,112.2 L304.0,114.8 L307.0,117.2 L310.0,119.3 L313.0,121.0 L316.0,122.4 L319.0,123.4 L322.0,123.9 L325.0,124.0 L328.0,123.6 L331.0,122.9 L334.0,121.7 L337.0,120.1 L340.0,118.2 L343.0,115.9 L346.0,113.3 L349.0,110.5 L352.0,107.5 L355.0,104.4 L358.0,101.2 L361.0,97.9 L364.0,94.7 L367.0,91.6 L370.0,88.7 L373.0,85.9 L376.0,83.4 L379.0,81.2 L382.0,79.4 L385.0,77.9 L388.0,76.9 L391.0,76.2 L394.0,76.0 L397.0,76.2 L400.0,76.9 L403.0,78.0 L406.0,79.4 L409.0,81.3 L412.0,83.5 L415.0,86.0 L418.0,88.7 L421.0,91.7 L424.0,94.8 L427.0,98.0 L430.0,101.2" stroke-width="1.2" opacity="0.63"/><path d="M10.0,114.1 L13.0,108.4 L16.0,98.4 L19.0,92.3 L22.0,84.6 L25.0,75.0 L28.0,77.6 L31.0,79.1 L34.0,80.9 L37.0,91.0 L40.0,98.2 L43.0,113.2 L46.0,120.1 L49.0,127.0 L52.0,128.0 L55.0,125.1 L58.0,120.2 L61.0,111.1 L64.0,98.6 L67.0,93.0 L70.0,81.2 L73.0,77.1 L76.0,79.7 L79.0,76.0 L82.0,80.8 L85.0,87.6 L88.0,100.5 L91.0,103.4 L94.0,108.6 L97.0,117.6 L100.0,113.9 L103.0,116.2 L106.0,110.2 L109.0,104.3 L112.0,97.2 L115.0,87.4 L118.0,82.4 L121.0,74.1 L124.0,76.8 L127.0,76.9 L130.0,81.9 L133.0,84.7 L136.0,94.9 L139.0,102.7 L142.0,104.6 L145.0,110.4 L148.0,114.0 L151.0,115.6 L154.0,111.7 L157.0,108.7 L160.0,105.6 L163.0,103.7 L166.0,101.7 L169.0,99.2 L172.0,99.5 L175.0,101.6 L178.0,104.7 L181.0,109.1 L184.0,112.5 L187.0,117.7 L190.0,122.1 L193.0,122.2 L196.0,123.1 L199.0,120.1 L202.0,118.5 L205.0,114.7 L208.0,110.0 L211.0,105.0 L214.0,100.6 L217.0,97.2 L220.0,94.7 L223.0,91.2 L226.0,89.7 L229.0,89.7 L232.0,89.2 L235.0,87.9 L238.0,86.9 L241.0,86.1 L244.0,84.1 L247.0,82.6 L250.0,80.9 L253.0,79.7 L256.0,78.4 L259.0,77.7 L262.0,78.1 L265.0,78.9 L268.0,80.0 L271.0,82.1 L274.0,84.5 L277.0,87.5 L280.0,90.4 L283.0,93.6 L286.0,96.8 L289.0,100.0 L292.0,103.2 L295.0,106.3 L298.0,109.3 L301.0,112.1 L304.0,114.8 L307.0,117.2 L310.0,119.3 L313.0,121.0 L316.0,122.4 L319.0,123.4 L322.0,123.9 L325.0,124.0 L328.0,123.6 L331.0,122.9 L334.0,121.7 L337.0,120.1 L340.0,118.2 L343.0,115.9 L346.0,113.3 L349.0,110.5 L352.0,107.5 L355.0,104.4 L358.0,101.2 L361.0,97.9 L364.0,94.7 L367.0,91.6 L370.0,88.7 L373.0,85.9 L376.0,83.4 L379.0,81.2 L382.0,79.4 L385.0,77.9 L388.0,76.9 L391.0,76.2 L394.0,76.0 L397.0,76.2 L400.0,76.9 L403.0,78.0 L406.0,79.4 L409.0,81.3 L412.0,83.5 L415.0,86.0 L418.0,88.7 L421.0,91.7 L424.0,94.8 L427.0,98.0 L430.0,101.2" stroke-width="1.1" opacity="0.71"/><path d="M10.0,81.0 L13.0,74.7 L16.0,69.1 L19.0,62.4 L22.0,62.4 L25.0,64.1 L28.0,60.2 L31.0,63.7 L34.0,64.3 L37.0,70.9 L40.0,80.5 L43.0,83.7 L46.0,97.7 L49.0,106.0 L52.0,107.8 L55.0,121.5 L58.0,123.8 L61.0,132.0 L64.0,135.8 L67.0,134.7 L70.0,138.1 L73.0,136.9 L76.0,135.4 L79.0,127.5 L82.0,125.6 L85.0,120.6 L88.0,111.6 L91.0,103.2 L94.0,93.0 L97.0,88.2 L100.0,80.6 L103.0,77.1 L106.0,72.1 L109.0,67.8 L112.0,63.4 L115.0,65.4 L118.0,65.9 L121.0,65.4 L124.0,72.4 L127.0,75.4 L130.0,77.6 L133.0,87.4 L136.0,89.4 L139.0,96.4 L142.0,104.1 L145.0,109.0 L148.0,113.8 L151.0,118.4 L154.0,121.0 L157.0,123.0 L160.0,124.1 L163.0,124.4 L166.0,126.8 L169.0,126.0 L172.0,123.7 L175.0,122.4 L178.0,118.7 L181.0,115.8 L184.0,113.4 L187.0,112.1 L190.0,107.1 L193.0,106.0 L196.0,103.2 L199.0,102.7 L202.0,100.1 L205.0,98.8 L208.0,97.9 L211.0,97.3 L214.0,97.0 L217.0,95.5 L220.0,95.6 L223.0,93.6 L226.0,93.0 L229.0,91.8 L232.0,90.7 L235.0,90.3 L238.0,88.8 L241.0,86.8 L244.0,85.4 L247.0,84.2 L250.0,83.3 L253.0,82.3 L256.0,81.4 L259.0,80.9 L262.0,80.6 L265.0,81.2 L268.0,82.0 L271.0,83.5 L274.0,85.3 L277.0,87.4 L280.0,90.0 L283.0,92.9 L286.0,95.9 L289.0,99.3 L292.0,102.6 L295.0,105.8 L298.0,109.0 L301.0,112.0 L304.0,114.7 L307.0,117.2 L310.0,119.3 L313.0,121.0 L316.0,122.4 L319.0,123.4 L322.0,123.9 L325.0,124.0 L328.0,123.6 L331.0,122.9 L334.0,121.7 L337.0,120.1 L340.0,118.2 L343.0,115.9 L346.0,113.3 L349.0,110.5 L352.0,107.5 L355.0,104.4 L358.0,101.2 L361.0,97.9 L364.0,94.7 L367.0,91.6 L370.0,88.7 L373.0,85.9 L376.0,83.4 L379.0,81.2 L382.0,79.4 L385.0,77.9 L388.0,76.9 L391.0,76.2 L394.0,76.0 L397.0,76.2 L400.0,76.9 L403.0,78.0 L406.0,79.4 L409.0,81.3 L412.0,83.5 L415.0,86.0 L418.0,88.7 L421.0,91.7 L424.0,94.8 L427.0,98.0 L430.0,101.2" stroke-width="1.3" opacity="0.79"/><path d="M10.0,141.2 L13.0,152.3 L16.0,156.5 L19.0,152.1 L22.0,147.9 L25.0,134.2 L28.0,116.0 L31.0,98.3 L34.0,81.5 L37.0,67.2 L40.0,55.1 L43.0,50.7 L46.0,50.7 L49.0,53.5 L52.0,61.8 L55.0,76.7 L58.0,89.8 L61.0,107.4 L64.0,125.0 L67.0,135.1 L70.0,142.3 L73.0,151.1 L76.0,148.4 L79.0,139.4 L82.0,128.7 L85.0,116.0 L88.0,101.2 L91.0,83.6 L94.0,68.8 L97.0,59.9 L100.0,57.2 L103.0,51.4 L106.0,56.1 L109.0,61.3 L112.0,71.4 L115.0,83.0 L118.0,96.8 L121.0,107.0 L124.0,115.9 L127.0,123.0 L130.0,126.4 L133.0,127.5 L136.0,121.5 L139.0,114.8 L142.0,108.5 L145.0,99.3 L148.0,92.0 L151.0,82.1 L154.0,78.8 L157.0,76.9 L160.0,76.5 L163.0,84.2 L166.0,87.8 L169.0,95.5 L172.0,105.9 L175.0,113.7 L178.0,123.2 L181.0,128.6 L184.0,132.0 L187.0,133.4 L190.0,134.4 L193.0,130.1 L196.0,126.5 L199.0,119.6 L202.0,114.1 L205.0,106.1 L208.0,100.1 L211.0,95.2 L214.0,92.6 L217.0,89.9 L220.0,88.3 L223.0,87.7 L226.0,89.0 L229.0,90.1 L232.0,90.2 L235.0,89.8 L238.0,89.6 L241.0,88.8 L244.0,87.5 L247.0,85.5 L250.0,83.5 L253.0,81.9 L256.0,80.2 L259.0,78.5 L262.0,78.3 L265.0,78.2 L268.0,79.3 L271.0,81.0 L274.0,83.4 L277.0,86.0 L280.0,89.3 L283.0,92.8 L286.0,96.4 L289.0,99.7 L292.0,103.1 L295.0,106.4 L298.0,109.4 L301.0,112.2 L304.0,114.8 L307.0,117.2 L310.0,119.3 L313.0,121.0 L316.0,122.4 L319.0,123.4 L322.0,123.9 L325.0,124.0 L328.0,123.6 L331.0,122.9 L334.0,121.7 L337.0,120.1 L340.0,118.2 L343.0,115.9 L346.0,113.3 L349.0,110.5 L352.0,107.5 L355.0,104.4 L358.0,101.2 L361.0,97.9 L364.0,94.7 L367.0,91.6 L370.0,88.7 L373.0,85.9 L376.0,83.4 L379.0,81.2 L382.0,79.4 L385.0,77.9 L388.0,76.9 L391.0,76.2 L394.0,76.0 L397.0,76.2 L400.0,76.9 L403.0,78.0 L406.0,79.4 L409.0,81.3 L412.0,83.5 L415.0,86.0 L418.0,88.7 L421.0,91.7 L424.0,94.8 L427.0,98.0 L430.0,101.2" stroke-width="1.0" opacity="0.87"/><path d="M10.0,75.4 L13.0,75.4 L16.0,85.1 L19.0,90.6 L22.0,99.5 L25.0,110.0 L28.0,120.7 L31.0,122.6 L34.0,115.6 L37.0,110.6 L40.0,107.0 L43.0,91.2 L46.0,85.8 L49.0,80.2 L52.0,83.0 L55.0,86.3 L58.0,95.8 L61.0,103.5 L64.0,110.0 L67.0,116.2 L70.0,117.7 L73.0,120.7 L76.0,109.4 L79.0,100.0 L82.0,97.1 L85.0,83.9 L88.0,83.7 L91.0,77.4 L94.0,83.0 L97.0,87.5 L100.0,98.8 L103.0,104.6 L106.0,109.6 L109.0,112.0 L112.0,110.6 L115.0,102.4 L118.0,96.8 L121.0,88.5 L124.0,80.7 L127.0,81.2 L130.0,79.8 L133.0,84.3 L136.0,87.1 L139.0,95.9 L142.0,102.6 L145.0,109.3 L148.0,109.6 L151.0,111.2 L154.0,110.0 L157.0,104.9 L160.0,103.2 L163.0,101.0 L166.0,98.7 L169.0,100.6 L172.0,103.6 L175.0,107.0 L178.0,112.7 L181.0,119.6 L184.0,121.0 L187.0,122.9 L190.0,121.3 L193.0,119.2 L196.0,115.3 L199.0,113.0 L202.0,108.5 L205.0,105.6 L208.0,103.8 L211.0,102.0 L214.0,102.4 L217.0,101.7 L220.0,101.2 L223.0,101.1 L226.0,99.1 L229.0,96.2 L232.0,92.0 L235.0,88.4 L238.0,84.2 L241.0,81.7 L244.0,79.2 L247.0,77.2 L250.0,77.2 L253.0,76.9 L256.0,77.6 L259.0,79.1 L262.0,80.0 L265.0,81.3 L268.0,82.6 L271.0,83.8 L274.0,85.8 L277.0,87.7 L280.0,90.2 L283.0,93.0 L286.0,96.2 L289.0,99.5 L292.0,102.8 L295.0,106.0 L298.0,109.2 L301.0,112.1 L304.0,114.8 L307.0,117.2 L310.0,119.3 L313.0,121.0 L316.0,122.4 L319.0,123.4 L322.0,123.9 L325.0,124.0 L328.0,123.6 L331.0,122.9 L334.0,121.7 L337.0,120.1 L340.0,118.2 L343.0,115.9 L346.0,113.3 L349.0,110.5 L352.0,107.5 L355.0,104.4 L358.0,101.2 L361.0,97.9 L364.0,94.7 L367.0,91.6 L370.0,88.7 L373.0,85.9 L376.0,83.4 L379.0,81.2 L382.0,79.4 L385.0,77.9 L388.0,76.9 L391.0,76.2 L394.0,76.0 L397.0,76.2 L400.0,76.9 L403.0,78.0 L406.0,79.4 L409.0,81.3 L412.0,83.5 L415.0,86.0 L418.0,88.7 L421.0,91.7 L424.0,94.8 L427.0,98.0 L430.0,101.2" stroke-width="0.9" opacity="0.95"/></g>
+        <circle cx="430" cy="101.2" r="4" fill="#A8873F"/>
+      </svg>
+      <figcaption>Vom Rauschen zurück auf deinen eigenen Sender</figcaption>
+    </figure>
+    <ul class="freq-points reveal">
+      <li><strong>Kein Glaubenssystem</strong>Du musst an nichts glauben. Neugier reicht völlig.</li>
+      <li><strong>Ortsunabhängig</strong>Gespräche per Zoom, die Frequenzbegleitung ganz einfach per Link.</li>
+      <li><strong>Ergänzend</strong>Die Analyse ist energetisch, kein medizinischer Befund. Sie ersetzt keine ärztliche oder therapeutische Behandlung, läuft aber wunderbar daneben mit.</li>
+    </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="peek reveal">
+      <div class="center">
+        <div class="eyebrow">Ein Blick in die Analyse</div>
+        <h3 class="peek-title">So sieht es aus, wenn Muster sichtbar werden.</h3>
+      </div>
+      <div class="peek-grid">
+        <figure class="shot shot-wide">
+          <div class="shot-bar"><span></span><span></span><span></span></div>
+          <img src="bilder/analyse-themen.jpg" alt="Ausschnitt einer Analyse: Lebensthemen wie Persönlichkeit und Wachstum, Erfolgreich sein, Authentisch sein und Partnerschaft mit Prozentwerten" loading="lazy">
+          <figcaption>Welche Lebensthemen bei dir gerade am stärksten mitschwingen</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-bar"><span></span><span></span><span></span></div>
+          <img src="bilder/analyse-rhythmus.png" alt="Kurve deines persönlichen Rhythmus über 30 Tage" loading="lazy">
+          <figcaption>Dein persönlicher Rhythmus über 30 Tage</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-bar"><span></span><span></span><span></span></div>
+          <img src="bilder/analyse-prozess.png" alt="Balkendiagramm der Prozess-Ebenen von Ursache bis Denken" loading="lazy">
+          <figcaption>Wo es gerade hakt: im Denken, Fühlen oder Handeln</figcaption>
+        </figure>
+      </div>
+      <p class="peek-note">Ausschnitte aus einer Beispielanalyse</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANDERS ============ -->
+<section id="anders" class="offers-bg">
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Was hier anders ist</div>
+      <h2>Vielleicht hast du schon viel ausprobiert.</h2>
+      <p class="lead narrow" style="margin:0 auto">Dann weißt du, wie es sich anfühlt, wenn sich am Ende doch nichts bewegt. Deshalb arbeite ich ein bisschen anders.</p>
+    </div>
+    <div class="cmp">
+      <div class="cmp-head"><div>Was du vielleicht kennst</div><div></div><div>Wie es bei mir ist</div></div>
+      <div class="cmp-row reveal"><div class="cmp-old">Du erzählst deine Geschichte zum zehnten Mal.</div><div class="cmp-arrow" aria-hidden="true">✦</div><div class="cmp-new">Die Analyse zeigt, was wirkt, bevor du viel erklären musst.</div></div>
+      <div class="cmp-row reveal"><div class="cmp-old">Es wird vor allem im Kopf gearbeitet.</div><div class="cmp-arrow" aria-hidden="true">✦</div><div class="cmp-new">Kopf, Körper und Frequenz greifen ineinander.</div></div>
+      <div class="cmp-row reveal"><div class="cmp-old">Ein Termin pro Woche, dazwischen bist du allein.</div><div class="cmp-arrow" aria-hidden="true">✦</div><div class="cmp-new">Deine Frequenzbegleitung läuft jeden Tag im Hintergrund weiter.</div></div>
+      <div class="cmp-row reveal"><div class="cmp-old">Veränderung braucht vor allem Willenskraft.</div><div class="cmp-arrow" aria-hidden="true">✦</div><div class="cmp-new">Veränderung darf sich leicht anfühlen.</div></div>
+      <div class="cmp-row reveal"><div class="cmp-old">Am Ende wartet ein Verkaufsgespräch mit Druck.</div><div class="cmp-arrow" aria-hidden="true">✦</div><div class="cmp-new">Wenn es nicht passt, sage ich dir das auch.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO ARBEITE ICH ============ -->
+<section id="so-arbeite-ich">
+  <div class="wave wave-2" style="--prev:#F7F0E1" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">So arbeite ich</div>
+      <h2>Die <span class="gold-text">Rückfluss-Methode</span></h2>
+      <p class="method-steps">Erkennen · Lösen · Verankern</p>
+      <p class="lead narrow" style="margin:0 auto">Veränderung passiert nicht im Kopf allein. Dein Kopf weiß längst, dass du Nein sagen darfst. Dein Körper erinnert sich aber noch an die Zeit, in der ein Nein Ärger bedeutet hat. Genau da setze ich an.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <div class="tag">Klarheitsgespräch</div>
+        <h3>Erkennen</h3>
+        <p>In 15 Minuten siehst du schwarz auf weiß, welches Muster dich gerade ausbremst. Die meisten Frauen erkennen sich sofort wieder. Oft mit einem überraschten: „Genau so passiert es mir immer wieder.“</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">2</div>
+        <div class="tag">Emotional Freedom Session</div>
+        <h3>Lösen</h3>
+        <p>Über den kinesiologischen Muskeltest finden wir eingeschlossene Emotionen und alte Muster und lösen sie. Stell dir deinen Körper wie ein Archiv vor. Der Muskeltest ist der Weg zu den alten Akten.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">3</div>
+        <div class="tag">Frequenzbegleitung</div>
+        <h3>Verankern</h3>
+        <p>Eine persönliche Frequenzbegleitung läuft über Wochen oder Monate im Hintergrund, mit täglichen Impulsen. Die Session öffnet die Tür. Die Begleitung hält sie offen. Wie beim Sport: Verändern tut dich die Routine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANGEBOTE ============ -->
+<section id="wege" class="offers-bg">
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Deine Wege mit mir</div>
+      <h2>Allein mit mir oder gemeinsam mit anderen.</h2>
+    </div>
+    <div class="offers offers-3">
+      <div class="offer-photo reveal"><div class="arch-frame"><div class="arch"><img src="bilder/anja-wege.jpg" alt="Anja Staufenbiel geht lächelnd durch hohes Gras" loading="lazy"></div></div></div>
+      <div class="offer featured reveal">
+        <div class="badge">Herzstück</div>
+        <div class="meta">1:1 · 3, 6 oder 12 Monate</div>
+        <h3>Deine persönliche Begleitung</h3>
+        <p>Für dich, wenn du nicht nur ein Thema lösen willst, sondern wirklich etwas verändern möchtest. Erst Kraft zurückholen, dann Grenzen setzen, dann deinen Wert spüren und annehmen.</p>
+        <ul>
+          <li>Emotional Freedom Sessions</li>
+          <li>Persönliche Frequenzbegleitung</li>
+          <li>Regelmäßige Analysen deines Weges</li>
+        </ul>
+        <a href="#" class="btn btn-gold link-gespraech">Klarheitsgespräch buchen</a>
+      </div>
+      <div class="offer reveal">
+        <div class="meta">Gruppe · 4 Wochen</div>
+        <h3>The Frequency Reset</h3>
+        <p>Vier Wochen gemeinsam mit anderen Frauen raus aus dem alten Muster. Verbindung, Austausch und Frequenzarbeit in der Gruppe. Ein schöner Einstieg in meine Arbeit.</p>
+        <a href="#" class="btn btn-navy link-reset">Mehr erfahren</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFEST ============ -->
+<section class="manifest manifest-photo">
+  <div class="wave wave-2" style="--prev:#F7F0E1" aria-hidden="true"></div>
+  <img class="manifest-bg" src="bilder/anja-strand.jpg" alt="Anja Staufenbiel liegt lächelnd im Sand am Strand" loading="lazy">
+  <div class="wrap">
+    <div class="manifest-inner reveal">
+      <div class="ornament"><span></span>✦<span></span></div>
+      <p class="manifest-text">Du bist nicht hier, um dich klein zu machen.<br>Du bist hier, um mit deiner Energie <span class="gold-text">sichtbar</span> zu sein.</p>
+    <p class="manifest-sub">Um mit deinem Licht andere zu erinnern, zu berühren, zu begleiten. Und dabei dich selbst nicht mehr zu vergessen. Deine Feinfühligkeit ist kein Fehler, den man wegcoachen muss. Sie ist deine größte Stärke.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERMINE ============ -->
+<section id="termine">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Nächste Termine</div>
+      <h2>Komm vorbei. Live und ganz nah.</h2>
+      <p class="lead narrow" style="margin:0 auto">Bei den kostenlosen Zoom-Abenden lernst du mich und meine Arbeit kennen. Und beim nächsten Frequency Reset gehst du vier Wochen lang mit anderen Frauen gemeinsam los.</p>
+    </div>
+    <div class="events reveal" id="events"></div>
+  </div>
+</section>
+
+<!-- ============ IMPULSE ============ -->
+<section id="impulse" class="offers-bg">
+  <div class="wave wave-1" style="--prev:#1B2540" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Zum Reinhören & Reinschauen</div>
+      <h2>Lern mich kennen, bevor wir sprechen.</h2>
+    </div>
+    <div class="tg reveal">
+      <div>
+        <div class="eyebrow">Lieber erst mal reinschnuppern?</div>
+        <h3>Komm in meine kostenlose Telegram-Gruppe</h3>
+        <p>Ein ruhiger, geschützter Raum statt lautem Social-Media-Trubel. Jeden Montag gibt es den Energetischen Wochenbericht, dazu Wochenfrequenzen und Impulse, die es nur dort gibt.</p>
+      </div>
+      <a href="#" class="btn btn-gold link-telegram">Zur Telegram-Gruppe</a>
+    </div>
+    <div class="media">
+      <a class="reveal link-podcast" href="#"><div class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><div class="m-type">Podcast</div><h3>Zu Gast bei HELP FM</h3><p>Im Selbsthilfe-Podcast mit Oliver Geldener erzähle ich, wie Gedanken und Gefühle zusammenspielen.</p><span class="m-more">Anhören</span></a>
+      <a class="reveal link-interview" href="#"><div class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 5v14l11-7z"/></svg></div><div class="m-type">YouTube</div><h3>Im Interview</h3><p>Ein offenes Gespräch über meine Arbeit und meinen Weg.</p><span class="m-more">Ansehen</span></a>
+      <a class="reveal link-meditation" href="#"><div class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20c-4 0-8-3-9-7 3 0 6 1 9 4 3-3 6-4 9-4-1 4-5 7-9 7z"/><path d="M12 17c-2-2-3-5-3-8 1 1 2 1 3 3 1-2 2-2 3-3 0 3-1 6-3 8z"/></svg></div><div class="m-type">YouTube</div><h3>Geführte Meditation</h3><p>Ein paar Minuten nur für dich. Augen zu, ankommen, durchatmen.</p><span class="m-more">Jetzt meditieren</span></a>
+      <a class="reveal link-instagram" href="#"><div class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></div><div class="m-type">Instagram</div><h3>@freequency_spirit</h3><p>Regelmäßige Impulse und jeden Sonntag mein Scantag: Welche Themen gerade viele Menschen bewegen und wie du gut damit umgehst.</p><span class="m-more">Folgen</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="fragen">
+  <div class="wave wave-2" style="--prev:#F7F0E1" aria-hidden="true"></div>
+  <div class="wrap faq-grid">
+    <div class="faq-side reveal">
+      <div class="arch-frame"><div class="arch"><img src="bilder/anja-cafe.jpg" alt="Anja Staufenbiel im Café mit Kaffee und Schokokuchen" loading="lazy"></div></div>
+      <p class="faq-note">Frag mich ruhig alles.<br>Am liebsten bei einem Kaffee.</p>
+    </div>
+    <div>
+      <div class="reveal">
+        <div class="eyebrow">Häufige Fragen</div>
+        <h2>Was du vielleicht noch wissen möchtest</h2>
+      </div>
+    <div class="faq">
+      <details class="faq-item reveal"><summary>Muss ich an Frequenzen glauben?</summary><p>Nein. Bring einfach Neugier mit. Im Klarheitsgespräch merkst du selbst, ob du dich in deiner Analyse wiedererkennst. Und dann entscheidest du.</p></details>
+      <details class="faq-item reveal"><summary>Was brauchst du von mir für die Analyse?</summary><p>Nur deinen vollständigen Namen, dein Geburtsdatum und deinen Geburtsort. Daraus wird dein persönlicher Biorhythmus berechnet. Mehr musst du nicht vorbereiten, keine Fragebögen, keine Hausaufgaben.</p></details>
+      <details class="faq-item reveal"><summary>Was passiert im Klarheitsgespräch?</summary><p>Wir treffen uns 15 Minuten per Zoom und schauen gemeinsam in deine erste Analyse. Ich zeige dir, welche Themen bei dir gerade im Vordergrund stehen, und du stellst deine Fragen. Danach weißt du, ob und wie wir weitergehen. Kein Verkaufsdruck, versprochen.</p></details>
+      <details class="faq-item reveal"><summary>Funktioniert das auch online?</summary><p>Ja. Ich arbeite komplett ortsunabhängig. Gespräche und Sessions finden per Zoom statt, die Frequenzbegleitung bekommst du einfach per Link aufs Handy.</p></details>
+      <details class="faq-item reveal"><summary>Was kostet eine Begleitung?</summary><p>Das ist ganz individuell. Es hängt davon ab, wie lange wir zusammen gehen und welche Bausteine du brauchst. Im Klarheitsgespräch schauen wir, was wirklich zu dir passt. Danach bekommst du ein klares Angebot mit festem Preis. Transparent, ohne versteckte Kosten und ohne Druck. Das Klarheitsgespräch selbst ist kostenfrei.</p></details>
+      <details class="faq-item reveal"><summary>Ersetzt das eine Therapie?</summary><p>Nein. Meine Arbeit ist energetische Begleitung. Sie ersetzt keine ärztliche, psychotherapeutische oder heilpraktische Behandlung. Wenn du in Behandlung bist, bleib es. Meine Begleitung kann ergänzend dazu laufen.</p></details>
+    </div>
+      <p class="faq-more reveal">Deine Frage ist nicht dabei? Schreib mir an <a href="mailto:leichtigkeit@anja-staufenbiel.de">leichtigkeit@anja-staufenbiel.de</a> oder stell sie mir direkt im <a href="#" class="link-gespraech">Klarheitsgespräch</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABSCHLUSS ============ -->
+<section class="final">
+  <div class="wrap final-grid">
+    <div class="final-text reveal">
+      <div class="eyebrow">Dein erster Schritt</div>
+      <h2>Du weißt genau, was andere brauchen. Lass uns herausfinden, was <span class="gold-text">du</span> brauchst.</h2>
+      <p class="lead">In einem kostenlosen 15-minütigen Klarheitsgespräch siehst du schwarz auf weiß, welches Muster dich gerade ausbremst. Kein Druck, keine Verpflichtung. Und wenn es nicht passt, sage ich dir das auch.</p>
+      <a href="#" class="btn btn-gold link-gespraech">Klarheitsgespräch buchen</a>
+      <p class="small">15 Minuten · kostenlos · per Zoom</p>
+    </div>
+    <div class="final-photo reveal">
+      <div class="arch-frame"><div class="arch"><img src="bilder/anja-ausblick.jpg" alt="Anja Staufenbiel lachend im hohen Gras, die Hand über den Augen, mit Blick in die Ferne" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="index.html" class="foot-logo"><img src="bilder/logo-hell.png" alt="FreeQuency Spirit Logo"></a>
+        <p>Anja Staufenbiel</p>
+        <p class="foot-claim">Ich bringe Gebenden das Empfangen bei.</p>
+      </div>
+      <ul>
+        <li><a href="meine-geschichte.html">Meine Geschichte</a></li>
+        <li><a href="quiz.html">Energie-Quiz</a></li>
+        <li><a href="#" class="link-freebie">Rückfluss-Session</a></li>
+        <li><a href="#" class="link-reset">The Frequency Reset</a></li>
+      </ul>
+      <ul>
+        <li><a href="#" class="link-instagram">Instagram</a></li>
+        <li><a href="#" class="link-impressum">Impressum</a></li>
+        <li><a href="#" class="link-datenschutz">Datenschutz</a></li>
+      </ul>
+    </div>
+    <p class="disclaimer">Meine Arbeit ist energetische Begleitung. Sie ersetzt keine ärztliche, psychotherapeutische oder heilpraktische Behandlung.</p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   EINSTELLUNGEN: Hier trägst du deine Links ein
+   ========================================================= */
+const LINKS = {
+  gespraech: "https://meet.brevo.com/anja-staufenbiel-1/klarheitsgesprach",                                   // Brevo-Kalender für das Klarheitsgespräch
+  reset: "https://frequency-reset.online",
+  zoom: "#",
+  freebie: "quiz.html",
+  instagram: "https://www.instagram.com/freequency_spirit/",
+  telegram: "https://t.me/+W1jT5dt_Ab01OTVi",          // Link zur Telegram-Gruppe
+  podcast: "https://open.spotify.com/episode/4gvnb0srmwHBMTMc4MjO6V",
+  interview: "https://www.youtube.com/watch?v=FGqr64kdPHI",
+  meditation: "https://www.youtube.com/watch?v=tjKFK74gNfw",
+  geschichten: "#",
+  impressum: "impressum.html",
+  datenschutz: "datenschutz.html"
+};
+Object.entries(LINKS).forEach(([k, url]) =>
+  document.querySelectorAll(".link-" + k).forEach(a => {
+    a.href = url;
+    if (/^https?:/.test(url)) { a.target = "_blank"; a.rel = "noopener"; }
+  }));
+
+/* =========================================================
+   TERMINE: Hier trägst du deine nächsten Termine ein.
+   Format: { datum: "JJJJ-MM-TT", art: "...", titel: "...", link: "..." }
+   Vergangene Termine verschwinden automatisch.
+   ========================================================= */
+const TERMINE = [
+  // Beispiel: { datum: "2026-11-12", art: "Kostenloser Zoom-Abend", titel: "Gebende lernen empfangen", link: "https://..." },
+];
+(function () {
+  const box = document.getElementById("events");
+  const heute = new Date(); heute.setHours(0,0,0,0);
+  const monate = ["Jan","Feb","März","Apr","Mai","Juni","Juli","Aug","Sep","Okt","Nov","Dez"];
+  const kommend = TERMINE.filter(t => new Date(t.datum) >= heute).sort((a,b) => a.datum.localeCompare(b.datum));
+  if (!kommend.length) {
+    document.getElementById("termine").style.display = "none";
+    return;
+  }
+  kommend.forEach(t => {
+    const d = new Date(t.datum);
+    const row = document.createElement("div");
+    row.className = "event";
+    row.innerHTML = '<div class="ev-date">' + d.getDate() + '.<small>' + monate[d.getMonth()] + ' ' + d.getFullYear() + '</small></div>' +
+      '<div><div class="ev-type"></div><div class="ev-title"></div></div>' +
+      '<a class="btn btn-navy" href="#">Dabei sein</a>';
+    row.querySelector(".ev-type").textContent = t.art;
+    row.querySelector(".ev-title").textContent = t.titel;
+    const a = row.querySelector("a"); a.href = t.link;
+    if (/^https?:/.test(t.link)) { a.target = "_blank"; a.rel = "noopener"; }
+    box.appendChild(row);
+  });
+})();
+
+
+/* Navigation */
+const header = document.getElementById("header");
+const burger = document.getElementById("burger");
+window.addEventListener("scroll", () => header.classList.toggle("scrolled", window.scrollY > 40), { passive: true });
+burger.addEventListener("click", () => {
+  const open = header.classList.toggle("menu-open");
+  burger.setAttribute("aria-expanded", open);
+});
+document.querySelectorAll(".menu a").forEach(a => a.addEventListener("click", () => {
+  header.classList.remove("menu-open"); burger.setAttribute("aria-expanded", false);
+}));
+
+/* Sanftes Einblenden */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

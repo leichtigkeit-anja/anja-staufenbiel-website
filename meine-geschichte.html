@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meine Geschichte | Anja Staufenbiel | FreeQuency Spirit</title>
+<meta name="description" content="Vom vorsichtigen Mädchen zur Frau, die einfach losgegangen ist. Die Geschichte von Anja Staufenbiel und FreeQuency Spirit.">
+<link rel="icon" type="image/png" href="bilder/favicon.png">
+<link rel="apple-touch-icon" href="bilder/logo.png">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,400,500,300i,400i|jost:300,400|allura:400" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2540;
+    --navy-2: #26324F;
+    --gold: #C2A05A;
+    --gold-deep: #86692B;
+    --gold-light: #E9D9B0;
+    --gold-pale: #F7F0E1;
+    --cream: #FCF9F3;
+    --sage: #5B6D50;
+    --text: #1B2540;
+    --text-soft: #3E4660;
+    --serif: "Cormorant Garamond", "Cormorant", "Bodoni 72", "Didot", "Baskerville", "Libre Baskerville", Georgia, serif;
+    --sans: "Jost", "Avenir Next", "Avenir", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    --script: "Allura", "Snell Roundhand", "Apple Chancery", "Brush Script MT", cursive;
+    --gold-grad: linear-gradient(120deg, #DCC38A 0%, #C2A05A 50%, #B08F48 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--cream); color: var(--text); font-family: var(--sans); font-weight: 400;
+    font-size: 17px; line-height: 1.85; letter-spacing: .01em; font-weight: 400; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; letter-spacing: .005em; }
+  h2 { font-size: clamp(36px, 5.6vw, 56px); margin-bottom: 24px; font-weight: 300; }
+  h3 { font-size: 28px; margin-bottom: 10px; font-weight: 400; }
+  .gold-text { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text;
+    color: transparent; font-style: italic; font-weight: 400; padding-right: .06em; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+  .narrow { max-width: 740px; }
+  section { padding: 110px 0; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 11px; font-weight: 400;
+    letter-spacing: .34em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 20px; }
+  .eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--gold); opacity: .7; }
+  .center { text-align: center; }
+  .center .eyebrow::after { content: ""; width: 40px; height: 1px; background: var(--gold); opacity: .7; }
+  p + p { margin-top: 16px; }
+  .lead { font-size: 19px; color: var(--text-soft); }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 26px auto; color: var(--gold); font-size: 13px; }
+  .ornament span { width: 90px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+  .btn { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: .22em;
+    text-transform: uppercase; text-decoration: none; padding: 18px 36px; border-radius: 999px;
+    transition: transform .3s, box-shadow .3s, background .3s, color .3s; cursor: pointer; border: none; text-align: center; }
+  .btn-gold { background: var(--gold-grad); color: #fff; box-shadow: 0 6px 20px rgba(194,160,90,.22); }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(194,160,90,.32); }
+  .btn-outline { border: 1px solid var(--gold); color: var(--gold-deep); background: transparent; }
+  .btn-outline:hover { background: var(--gold-pale); }
+  .btn-navy { border: 1px solid var(--navy); color: var(--navy); background: transparent; }
+  .btn-navy:hover { background: var(--navy); color: var(--cream); }
+  .featured .btn-navy, .voices-bg .btn-navy { border-color: var(--gold); color: var(--gold-light); }
+  .btn:focus-visible, .nav a:focus-visible, .burger:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+  
+  /* Navigation */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .4s, box-shadow .4s; }
+  header.scrolled { background: rgba(252,249,243,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(194,160,90,.35); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  .logo { font-family: var(--serif); font-size: 27px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: .02em; }
+  .logo b { color: var(--gold-deep); font-weight: 400; font-style: italic; }
+  .menu { display: flex; align-items: center; gap: 34px; list-style: none; }
+  .menu a { color: var(--navy); text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+  .menu a:hover { color: var(--gold-deep); }
+  .menu .btn { padding: 13px 24px; font-size: 11px; color: #fff; }
+  .burger { display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px; position: relative; }
+  .burger span, .burger span::before, .burger span::after { position: absolute; left: 10px; width: 24px; height: 1px; background: var(--navy); content: ""; transition: .3s; }
+  .burger span { top: 21px; } .burger span::before { top: -7px; left: 0; } .burger span::after { top: 7px; left: 0; }
+  .menu-open .burger span { background: transparent; }
+  .menu-open .burger span::before { top: 0; transform: rotate(45deg); }
+  .menu-open .burger span::after { top: 0; transform: rotate(-45deg); }
+
+  /* Hero, hell */
+  .hero { background: radial-gradient(ellipse at 85% 20%, rgba(220,195,138,.30), transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(220,195,138,.18), transparent 50%), var(--cream);
+    padding: 160px 0 110px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; left: 10%; right: 10%; bottom: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 60px; align-items: center; position: relative; }
+  .hero h1 { font-size: clamp(46px, 7.2vw, 86px); font-weight: 300; color: var(--navy); margin-bottom: 28px; line-height: 1.05; }
+  .hero .lead { max-width: 500px; margin-bottom: 40px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-btns .btn { padding: 18px 28px; }
+  .trust { margin-top: 50px; display: flex; gap: 44px; flex-wrap: wrap; }
+  .trust div { font-size: 12px; color: var(--text-soft); letter-spacing: .14em; text-transform: uppercase; }
+  .trust strong { display: block; font-family: var(--serif); font-size: 44px; font-weight: 300; color: var(--gold-deep);
+    line-height: 1; margin-bottom: 6px; letter-spacing: 0; text-transform: none; }
+
+  .arch { position: relative; aspect-ratio: 4/5; border-radius: 999px 999px 24px 24px; overflow: hidden; background: var(--gold-pale); }
+  .arch-frame { position: relative; padding: 16px; }
+  .arch-frame::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--gold); border-radius: 999px 999px 32px 32px; }
+  .arch-frame::after { content: "✦"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    color: var(--gold); font-size: 16px; background: var(--cream); padding: 0 10px; }
+  .arch img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--gold-deep); font-size: 13px; letter-spacing: .1em; text-align: center; padding: 20px; }
+  .ph svg { width: 36px; height: 36px; stroke: var(--gold); }
+
+  /* Kennst du das */
+  .mirror-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .checks { list-style: none; margin-top: 10px; }
+  .checks li { display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid rgba(194,160,90,.35); font-size: 17px; }
+  .checks li:first-child { border-top: 1px solid rgba(194,160,90,.35); }
+  .checks li::before { content: "✦"; color: var(--gold); font-size: 13px; line-height: 2.2; }
+
+  /* Wert */
+  .value { background: linear-gradient(160deg, #F3E6C8 0%, #EAD6A6 55%, #E2C88E 100%); position: relative; overflow: hidden; }
+  .value::before { content: "✦"; position: absolute; font-size: 380px; color: rgba(255,255,255,.28); right: -50px; top: -140px; line-height: 1; }
+  .value h2 { font-size: clamp(40px, 6.6vw, 68px); color: var(--navy); }
+  .value p { color: #3A3F4E; font-size: 18px; }
+  .value .eyebrow { color: var(--navy); }
+  .value .eyebrow::before, .value .eyebrow::after { background: var(--navy); opacity: .5; }
+
+  /* Quiz */
+  .quiz-card { background: var(--navy); color: var(--cream); border-radius: 36px; padding: 72px 40px; text-align: center; position: relative; overflow: hidden; }
+  .quiz-card::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(194,160,90,.4); border-radius: 26px; pointer-events: none; }
+  .quiz-card h2 { color: var(--cream); }
+  .quiz-card .lead { color: #CDD2DE; max-width: 560px; margin: 0 auto 32px; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-bottom: 40px; }
+  .chips span { color: var(--gold-light); font-family: var(--serif); font-style: italic; font-size: 21px; }
+  .chips span:not(:last-child)::after { content: "·"; margin-left: 22px; color: var(--gold); font-style: normal; }
+
+  /* So arbeite ich */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 60px; }
+  .step { padding: 10px 6px; text-align: center; }
+  .step .num { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold-deep);
+    display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic;
+    font-size: 34px; font-weight: 300; margin: 0 auto 26px; }
+  .step .tag { font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--sage); margin-bottom: 6px; }
+  .step p { color: var(--text-soft); font-size: 16px; }
+
+  /* Angebote */
+  .offers-bg { background: var(--gold-pale); }
+  .offers { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 26px; margin-top: 56px; align-items: stretch; }
+  .offer { background: rgba(255,255,255,.7); border-radius: 30px; padding: 44px 34px; display: flex; flex-direction: column; border: 1px solid rgba(194,160,90,.35); }
+  .offer.featured { background: var(--navy); color: var(--cream); border: 1px solid var(--gold); position: relative; }
+  .offer.featured h3 { color: var(--cream); }
+  .badge { position: absolute; top: -13px; left: 34px; background: var(--cream); color: var(--gold-deep); font-size: 10px;
+    letter-spacing: .26em; text-transform: uppercase; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--gold); }
+  .offer .meta { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px; }
+  .offer.featured .meta { color: var(--gold); }
+  .offer p { font-size: 16px; color: var(--text-soft); flex: 1; }
+  .offer.featured p { color: #CDD2DE; }
+  .offer ul { list-style: none; margin: 18px 0 26px; display: grid; gap: 8px; font-size: 15px; }
+  .offer ul li::before { content: "✦   "; color: var(--gold); font-size: 11px; }
+  .offer .btn { align-self: flex-start; margin-top: 18px; }
+  .freebie { margin-top: 36px; background: rgba(255,255,255,.75); border-radius: 30px; padding: 32px 36px; display: flex; gap: 28px;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; border: 1px solid var(--gold); }
+  .freebie-main { display: flex; gap: 28px; align-items: center; }
+  .freebie-img { width: 116px; height: 116px; border-radius: 50%; object-fit: cover; flex-shrink: 0; padding: 5px; border: 1px solid var(--gold); background: #fff; }
+  .freebie h3 { margin-bottom: 2px; }
+  .freebie p { color: var(--text-soft); font-size: 16px; }
+
+  /* Über mich */
+  .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: center; }
+  .signature { font-family: var(--script); font-size: 54px; color: var(--gold-deep); margin-top: 22px; line-height: 1.2; }
+
+  /* Manifest */
+  .manifest { background: var(--gold-pale); padding: 90px 0; }
+  .manifest-text { font-family: var(--serif); font-size: clamp(32px, 5vw, 50px); font-weight: 300; line-height: 1.3; color: var(--navy); }
+  .manifest-sub { font-size: 18px; color: var(--text-soft); margin-top: 22px; }
+
+  /* Stimmen */
+  .voices-bg { background: var(--navy); color: var(--cream); }
+  .voices-bg h2 { color: var(--cream); }
+  .voices-bg .eyebrow { color: var(--gold-light); }
+  .voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 56px; }
+  .voice { border-radius: 30px; padding: 36px 30px; border: 1px solid rgba(194,160,90,.35); }
+  .voice .q { font-family: var(--serif); font-size: 70px; line-height: .6; color: var(--gold); display: block; margin-bottom: 8px; }
+  .voice p { font-family: var(--serif); font-size: 22px; font-style: italic; font-weight: 300; color: #E6E8EE; line-height: 1.5; }
+  .voice .who { margin-top: 20px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .placeholder-note { opacity: .55; }
+
+  /* Abschluss */
+  .final { text-align: center; background: radial-gradient(ellipse at top, rgba(220,195,138,.35), transparent 65%), var(--cream); }
+  .final h2 { font-size: clamp(36px, 5.6vw, 58px); max-width: 880px; margin: 0 auto 26px; }
+  .final .lead { max-width: 600px; margin: 0 auto 38px; }
+  .final .small { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); margin-top: 18px; }
+
+  footer { background: var(--navy); color: #AEB5C6; padding: 64px 0 40px; font-size: 14px; }
+  footer .logo { color: var(--cream); }
+  footer .logo b { color: var(--gold); }
+  .foot { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 34px; }
+  .foot .logo { display: block; margin-bottom: 10px; }
+  .foot ul { list-style: none; display: grid; gap: 8px; }
+  .foot a { text-decoration: none; } .foot a:hover { color: var(--gold-light); }
+  .disclaimer { border-top: 1px solid rgba(194,160,90,.25); padding-top: 24px; font-size: 12px; text-align: center; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 920px) {
+    .hero-grid, .mirror-grid, .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .hero-photo, .about-grid .arch-frame { max-width: 360px; margin: 0 auto; width: 100%; }
+    .steps, .offers, .voices { grid-template-columns: 1fr; }
+    .burger { display: block; }
+    .menu { position: fixed; inset: 84px 0 auto 0; background: var(--cream); flex-direction: column; gap: 0;
+      padding: 10px 22px 30px; border-bottom: 1px solid var(--gold); display: none; }
+    .menu li { width: 100%; border-bottom: 1px solid rgba(194,160,90,.2); }
+    .menu li:last-child { border: none; padding-top: 18px; }
+    .menu a { display: block; padding: 15px 0; }
+    .menu-open .menu { display: flex; }
+    header.menu-open { background: var(--cream); }
+  }
+  @media (max-width: 560px) {
+    section { padding: 80px 0; }
+    .hero { padding: 120px 0 80px; }
+    .hero-btns .btn { width: 100%; }
+    .quiz-card { padding: 56px 24px; }
+    .offer { padding: 38px 26px; }
+    .freebie { padding: 28px 22px; }
+    .freebie .btn { width: 100%; }
+    .freebie-main { flex-direction: column; text-align: center; gap: 16px; }
+    .chips span:not(:last-child)::after { display: none; }
+  }
+
+  /* =========== VERTRAUENSLEISTE =========== */
+  .trustbar { background: var(--navy); color: var(--gold-light); padding: 22px 0; }
+  .trustbar .wrap { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 26px;
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+  .trustbar .tb-label { color: var(--gold); font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: .02em; font-size: 20px; }
+  .trustbar .dot { color: var(--gold); font-size: 10px; }
+
+  /* =========== GESCHENK =========== */
+  .gift { margin-top: 40px; background: rgba(255,255,255,.75); border: 1px solid var(--gold); border-radius: 36px;
+    padding: 56px 56px; display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: center; }
+  .phone { width: 250px; border-radius: 38px; background: var(--navy); padding: 12px; box-shadow: 0 30px 60px rgba(27,37,64,.22);
+    position: relative; transform: rotate(-3deg); }
+  .phone::before { content: ""; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 70px; height: 6px; border-radius: 6px; background: #0F1628; z-index: 2; }
+  .screen { background: linear-gradient(180deg, #FBF5E8, #F1E3C2); border-radius: 28px; padding: 44px 18px 26px; text-align: center; }
+  .cover { width: 100%; aspect-ratio: 1; border-radius: 18px; object-fit: cover; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(27,37,64,.18); }
+  .pl-title { font-family: var(--serif); font-size: 22px; color: var(--navy); line-height: 1.1; }
+  .pl-sub { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); margin: 6px 0 16px; }
+  .pl-bar { height: 3px; background: rgba(27,37,64,.12); border-radius: 3px; overflow: hidden; }
+  .pl-bar span { display: block; width: 38%; height: 100%; background: var(--gold-grad); }
+  .pl-time { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-soft); margin-top: 6px; }
+  .pl-ctrl { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 10px; color: var(--navy); font-size: 14px; }
+  .pl-play { width: 46px; height: 46px; border-radius: 50%; background: var(--gold-grad); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; padding-left: 3px; }
+  .gift h3 { font-size: clamp(32px, 4.4vw, 44px); font-weight: 300; margin-bottom: 14px; }
+  .gift ul { list-style: none; margin: 20px 0 30px; display: grid; gap: 10px; }
+  .gift li::before { content: "✦   "; color: var(--gold); font-size: 11px; }
+
+  /* =========== TERMINE =========== */
+  .events { margin-top: 50px; border-top: 1px solid rgba(194,160,90,.4); }
+  .event { display: grid; grid-template-columns: 120px 1fr auto; gap: 30px; align-items: center; padding: 28px 0;
+    border-bottom: 1px solid rgba(194,160,90,.4); }
+  .ev-date { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--gold-deep); line-height: 1; }
+  .ev-date small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); margin-top: 6px; }
+  .ev-type { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); }
+  .ev-title { font-family: var(--serif); font-size: 26px; color: var(--navy); line-height: 1.2; }
+  .events-empty { text-align: center; padding: 40px 0; color: var(--text-soft); }
+
+  /* =========== IMPULSE =========== */
+  .media { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 50px; }
+  .media a { display: flex; flex-direction: column; text-decoration: none; background: #fff; border: 1px solid rgba(194,160,90,.35);
+    border-radius: 26px; padding: 30px 26px; transition: transform .3s, box-shadow .3s; }
+  .media a:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(27,37,64,.08); }
+  .m-icon { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center;
+    justify-content: center; color: var(--gold-deep); margin-bottom: 20px; }
+  .m-icon svg { width: 22px; height: 22px; }
+  .m-type { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); margin-bottom: 4px; }
+  .media h3 { font-size: 24px; margin-bottom: 8px; }
+  .media p { font-size: 15px; color: var(--text-soft); flex: 1; }
+  .m-more { margin-top: 18px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); }
+  .voices-more { text-align: center; margin-top: 44px; }
+
+  @media (max-width: 920px) {
+    .gift { grid-template-columns: 1fr; padding: 44px 26px; gap: 40px; justify-items: center; text-align: center; }
+    .gift ul { justify-items: center; }
+    .media { grid-template-columns: 1fr 1fr; }
+    .event { grid-template-columns: 90px 1fr; gap: 6px 20px; }
+    .event .btn { grid-column: 1 / -1; justify-self: start; margin-top: 10px; }
+  }
+  @media (max-width: 560px) { .media { grid-template-columns: 1fr; } .phone { width: 220px; } }
+
+  /* Echte Nachrichten als Collage */
+  .chats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 56px auto 0; max-width: 900px;
+    grid-template-areas: "a c" "b c" "d d"; align-items: start; }
+  .chat:nth-child(1) { grid-area: a; } .chat:nth-child(2) { grid-area: b; }
+  .chat:nth-child(3) { grid-area: c; } .chat:nth-child(4) { grid-area: d; }
+  .chat { margin: 0; background: #fff; border-radius: 18px; padding: 10px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.25); position: relative; }
+  .chat:nth-child(odd) { transform: rotate(-1.2deg); }
+  .chat:nth-child(even) { transform: rotate(1deg); }
+  .chat img { width: 100%; border-radius: 10px; }
+  .chat::before { content: "✦"; position: absolute; top: -12px; left: 22px; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--gold-grad); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; }
+  .chat.wide { column-span: none; }
+  .chats-note { text-align: center; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(233,217,176,.65); margin-top: 6px; }
+  @media (max-width: 760px) { .chats { grid-template-columns: 1fr; grid-template-areas: "a" "b" "c" "d"; } .chat:nth-child(odd), .chat:nth-child(even) { transform: none; } }
+
+  /* Frequenz erklärt */
+  .freq-grid { display: grid; grid-template-columns: 1.3fr .9fr; gap: 70px; align-items: center; }
+  .freq-points { list-style: none; display: grid; gap: 18px; }
+  .freq-points li { background: #fff; border: 1px solid rgba(194,160,90,.35); border-radius: 24px; padding: 24px 26px; font-size: 15px; color: var(--text-soft); }
+  .freq-points strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 24px; color: var(--navy); margin-bottom: 2px; }
+  .freq-points strong::before { content: "✦  "; color: var(--gold); font-size: 13px; vertical-align: middle; }
+  .offers-2 { grid-template-columns: 1.3fr 1fr; max-width: 920px; margin-left: auto; margin-right: auto; }
+  #quiz .gift { margin-top: 34px; }
+  #so-arbeite-ich { padding-top: 40px !important; }
+  /* FAQ */
+  .faq { margin-top: 44px; border-top: 1px solid rgba(194,160,90,.4); }
+  .faq-item { border-bottom: 1px solid rgba(194,160,90,.4); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 24px 44px 24px 0; position: relative;
+    font-family: var(--serif); font-size: 25px; color: var(--navy); line-height: 1.3; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    font-family: var(--sans); font-weight: 300; font-size: 26px; color: var(--gold-deep); transition: transform .3s; }
+  .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-item summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  .faq-item p { padding: 0 0 26px; color: var(--text-soft); max-width: 640px; }
+  @media (max-width: 920px) { .freq-grid { grid-template-columns: 1fr; gap: 40px; } .offers-2 { grid-template-columns: 1fr; } }
+
+  /* Blick in die Analyse */
+  .peek { margin-top: 90px; }
+  .peek-title { font-size: clamp(28px, 4vw, 40px); font-weight: 300; }
+  .peek-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 26px; margin-top: 40px; align-items: start; }
+  .shot { margin: 0; background: #fff; border-radius: 22px; overflow: hidden; border: 1px solid rgba(194,160,90,.35);
+    box-shadow: 0 18px 44px rgba(27,37,64,.08); }
+  .shot-wide { grid-column: 1 / -1; }
+  .shot-bar { display: flex; gap: 7px; padding: 12px 16px; background: var(--gold-pale); border-bottom: 1px solid rgba(194,160,90,.25); }
+  .shot-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--gold-light); }
+  .shot img { width: 100%; padding: 14px 16px 6px; }
+  .shot figcaption { padding: 4px 20px 18px; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--gold-deep); }
+  .peek-note { text-align: center; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); margin-top: 18px; }
+  @media (max-width: 760px) { .peek-grid { grid-template-columns: 1fr; } .peek { margin-top: 60px; } }
+
+  .price { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin: -6px 0 4px; }
+  .price strong { font-family: var(--serif); font-weight: 300; font-size: 38px; letter-spacing: 0; color: var(--gold); margin-left: 6px; }
+
+  .story-hero { padding: 160px 0 90px; background: radial-gradient(ellipse at 85% 20%, rgba(220,195,138,.30), transparent 55%), var(--cream); }
+  .story-hero .hero-grid { grid-template-columns: 1.1fr .9fr; }
+  .story-hero h1 { font-size: clamp(44px, 6.6vw, 78px); font-weight: 300; line-height: 1.06; margin-bottom: 26px; }
+  .chapter { padding: 90px 0; }
+  .chapter + .chapter { padding-top: 0; }
+  .ch-grid { display: grid; grid-template-columns: 220px 1fr; gap: 50px; max-width: 980px; margin: 0 auto; }
+  .ch-num { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 76px; line-height: 1; color: var(--gold); }
+  .ch-label { font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--sage); margin-top: 10px; }
+  .chapter h2 { font-size: clamp(32px, 4.6vw, 46px); }
+  .ch-img { display: grid; grid-template-columns: 1fr .8fr; gap: 60px; align-items: center; max-width: 1080px; margin: 0 auto; }
+  .ch-img .arch-frame { max-width: 380px; }
+  .bigquote { background: var(--navy); color: var(--cream); padding: 100px 0; text-align: center; }
+  .bigquote p { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 4.6vw, 48px); line-height: 1.3; max-width: 880px; margin: 0 auto; }
+  .bigquote p em { color: var(--gold); }
+  .timeline { list-style: none; max-width: 760px; margin: 50px auto 0; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 1px; background: linear-gradient(var(--gold), rgba(194,160,90,.15)); }
+  .timeline li { position: relative; padding: 0 0 34px 46px; }
+  .timeline li::before { content: ""; position: absolute; left: 3px; top: 8px; width: 13px; height: 13px; border-radius: 50%; background: var(--cream); border: 1px solid var(--gold); }
+  .timeline li:last-child::before { background: var(--gold-grad); }
+  .tl-when { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-deep); }
+  .tl-what { font-family: var(--serif); font-size: 25px; color: var(--navy); line-height: 1.25; }
+  .tl-more { font-size: 15px; color: var(--text-soft); margin-top: 2px; }
+  .truths { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; gap: 22px; margin-top: 50px; }
+  .truth { background: #fff; border: 1px solid rgba(194,160,90,.35); border-radius: 26px; padding: 34px 26px; }
+  .truth .t-n { font-family: var(--serif); font-style: italic; font-size: 34px; color: var(--gold); line-height: 1; margin-bottom: 14px; }
+  .truth h3 { font-size: 24px; margin-bottom: 8px; }
+  .truth p { font-size: 15px; color: var(--text-soft); }
+  .values { display: flex; justify-content: center; gap: 18px 46px; flex-wrap: wrap; margin-top: 50px; }
+  .values span { font-family: var(--serif); font-style: italic; font-size: clamp(30px, 4vw, 44px); color: var(--gold-deep); }
+  .values span:not(:last-child)::after { content: "✦"; font-style: normal; font-size: 14px; color: var(--gold); margin-left: 46px; vertical-align: middle; }
+  .facts-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: center; }
+  .facts { list-style: none; }
+  .facts li { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid rgba(194,160,90,.35); }
+  .facts li:first-child { border-top: 1px solid rgba(194,160,90,.35); }
+  .facts li::before { content: "✦"; color: var(--gold); font-size: 13px; line-height: 2.1; }
+  @media (max-width: 920px) {
+    .story-hero .hero-grid, .ch-img, .facts-grid { grid-template-columns: 1fr; gap: 44px; }
+    .ch-grid { grid-template-columns: 1fr; gap: 10px; }
+    .ch-num { font-size: 56px; }
+    .truths { grid-template-columns: 1fr 1fr; }
+    .ch-img .arch-frame, .facts-grid .arch-frame { margin: 0 auto; width: 100%; max-width: 340px; }
+  }
+  @media (max-width: 560px) { .truths { grid-template-columns: 1fr; } .values span:not(:last-child)::after { display: none; } .story-hero { padding: 120px 0 70px; } }
+
+  /* Polaroids */
+  .polaroid { margin: 0; background: #fff; padding: 12px 12px 16px; box-shadow: 0 14px 34px rgba(27,37,64,.14);
+    transform: rotate(-3deg); max-width: 230px; }
+  .polaroid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+  .polaroid figcaption { font-family: var(--script); font-size: 26px; color: var(--navy); text-align: center; margin-top: 8px; line-height: 1.1; }
+  .ch-grid .polaroid { margin-top: 30px; }
+  .album { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; max-width: 980px; margin: 60px auto 0; align-items: start; }
+  .album .polaroid { max-width: none; }
+  .album .polaroid img { aspect-ratio: 4/3; }
+  .album .polaroid:nth-child(1) { transform: rotate(-2.5deg); }
+  .album .polaroid:nth-child(2) { transform: rotate(1.8deg) translateY(16px); }
+  .album .polaroid:nth-child(3) { transform: rotate(1.4deg); }
+  @media (max-width: 920px) { .ch-grid .polaroid { max-width: 200px; margin: 20px 0 10px; } }
+  @media (max-width: 680px) { .album { grid-template-columns: 1fr; max-width: 340px; gap: 30px; } .album .polaroid:nth-child(2) { transform: rotate(1.5deg); } }
+
+  .bridge { max-width: 980px; margin: -30px auto 90px; padding: 0 22px; }
+  .bridge p { margin-left: 270px; font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--gold-deep);
+    border-left: 1px solid var(--gold); padding-left: 22px; line-height: 1.4; }
+  @media (max-width: 920px) { .bridge p { margin-left: 0; font-size: 22px; } .bridge { margin: -20px auto 70px; } }
+
+  .closing-photo { max-width: 400px; margin: 60px auto 0; }
+  .offers-bg .arch-frame::after { background: var(--gold-pale); }
+  @media (max-width: 560px) { .closing-photo { max-width: 320px; } }
+  /* Fließende Wellen-Übergänge */
+  section, footer { position: relative; }
+  .wave { position: absolute; top: -1px; left: 0; right: 0; height: 64px; z-index: 3; pointer-events: none; background: var(--prev);
+    -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  .wave-1 { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V18%20C1180%2C70%20940%2C62%20720%2C34%20C500%2C6%20260%2C4%200%2C42%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V18%20C1180%2C70%20940%2C62%20720%2C34%20C500%2C6%20260%2C4%200%2C42%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); }
+  .wave-2 { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V42%20C1180%2C4%20940%2C6%20720%2C34%20C500%2C62%20260%2C70%200%2C18%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2070%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H1440%20V42%20C1180%2C4%20940%2C6%20720%2C34%20C500%2C62%20260%2C70%200%2C18%20Z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E"); }
+  footer { padding-top: 110px !important; }
+  @media (max-width: 560px) { .wave { height: 34px; } }
+
+  .hl { font-weight: 500; color: var(--navy); }
+  .alt-way { margin-top: 26px; font-size: 15px; color: var(--text-soft); }
+  .alt-way a { color: var(--gold-deep); }
+
+  .logo { display: inline-flex; align-items: center; gap: 10px; }
+  .logo-full { height: 58px; width: auto; display: block; }
+  .foot-logo { display: inline-block; margin-bottom: 14px; }
+  .foot-logo img { width: 150px; height: auto; }
+  @media (max-width: 560px) { .logo-full { height: 46px; } }
+  .foot-claim { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--gold-light); margin-top: 4px; }
+</style>
+</head>
+<body>
+<!-- ============ NAVIGATION ============ -->
+<header id="header">
+  <nav class="wrap nav" aria-label="Hauptnavigation">
+    <a href="index.html" class="logo"><img class="logo-full" src="bilder/logo-quer.png" alt="FreeQuency Spirit"></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html#ueber-mich">Über mich</a></li>
+      <li><a href="index.html#so-arbeite-ich">So arbeite ich</a></li>
+      <li><a href="index.html#wege">Begleitung</a></li>
+      <li><a href="index.html#quiz">Quiz</a></li>
+      <li><a href="index.html#fragen">Fragen</a></li>
+      <li><a href="#" class="btn btn-gold link-gespraech">Klarheitsgespräch</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="story-hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="eyebrow">Meine Geschichte</div>
+      <h1>Ich bin die, die einfach <span class="gold-text">losgegangen</span> ist.</h1>
+      <p class="lead">Mit klopfendem Herzen. Ohne fertigen Plan. Und mit ganz viel Vertrauen.</p>
+    </div>
+    <div class="hero-photo"><div class="arch-frame"><div class="arch light"><img src="bilder/anja-arkaden.jpg" alt="Anja Staufenbiel lehnt an einer Wand unter Arkaden am Wasser"></div></div></div>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="wrap ch-grid reveal">
+    <div><div class="ch-num">01</div><div class="ch-label">Die Anfänge</div>
+      <figure class="polaroid"><img src="bilder/anja-kind.jpg" alt="Anja als kleines Mädchen mit einem Telefonhörer am Ohr"><figcaption>Schon damals am Telefon</figcaption></figure></div>
+    <div>
+      <h2>Das vorsichtige Mädchen</h2>
+      <p class="lead">Ich bin 1984 in Ostdeutschland geboren und liebevoll aufgewachsen. Als Einzelkind, behütet, manchmal ein bisschen zu sehr. Und ich war sehr viel krank.</p>
+      <p>Mit zwei Jahren die erste Lungenentzündung und eine Operation. Mit acht eine Nierenentzündung und ein langer Krankenhausaufenthalt. Mit zwölf, nach der zweiten Lungenentzündung, die Diagnose: chronisches Asthma. Zweimal täglich Cortisonspray. Und dazu der Satz, dass es wegen meiner vielen Allergien nie ausheilen wird. Im selben Jahr haben sich meine Eltern getrennt. Mit Anfang zwanzig kam noch eine chronische Gastritis dazu. Ich kannte Krankenhausflure besser als so manchen Spielplatz.</p>
+      <p>Meine Mama wollte mich vor allem auf der Welt beschützen. Aus Liebe, ganz klar. Aber ich habe dabei auch etwas gelernt, das mich viele Jahre begleitet hat: Die Welt da draußen ist gefährlich. Sei lieber vorsichtig. Das hat sich tief in mein Selbstbewusstsein eingebrannt. Ich habe mich vieles nicht getraut. Große Menschenmengen machten mir Angst. Allein reisen? Undenkbar. Und mein großer Traum, irgendwann am Meer zu leben, fühlte sich so weit weg an wie der Mond.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="wrap ch-grid reveal">
+    <div><div class="ch-num">02</div><div class="ch-label">Die Vernunft</div></div>
+    <div>
+      <h2>Mach was Vernünftiges</h2>
+      <p class="lead">Also habe ich etwas Vernünftiges gemacht. Eine Ausbildung zur Kauffrau für Bürokommunikation im Bezirksamt in Berlin. Kleiner Spoiler: Das war so überhaupt nicht meins. Danach ging es von einer Anstellung zur nächsten. Und ich habe immer Vollgas gegeben. Weiterbildungen, Abendstudium, Überstunden. Ich dachte: Wenn ich mehr leiste, mehr weiß und mehr lerne, dann habe ich irgendwann mehr Geld und mehr Freiheit.</p>
+      <p>In meinem letzten Job in einer Unternehmensberatung kam dann der Moment. Man sagte mir, mein Urlaub sei eben begrenzt und mein Gehalt würde sich nicht mehr erhöhen. Ich saß da und dachte: Ich habe so viel gegeben. Ich habe Unternehmen mit groß gemacht. Ich habe meine Ideen und meine Kreativität reingesteckt. Warum mache ich das eigentlich nicht für mich?</p>
+    </div>
+  </div>
+</section>
+<div class="bridge reveal"><p>Kommt dir das bekannt vor? Dann weißt du, warum ich heute genau mit Frauen wie dir arbeite.</p></div>
+
+<section class="chapter">
+  <div class="wrap ch-grid reveal">
+    <div><div class="ch-num">03</div><div class="ch-label">Der Sprung</div></div>
+    <div>
+      <h2>Und dann bin ich gesprungen</h2>
+      <p class="lead">Ohne zu wissen, ob es funktioniert. Ich bin durch Europa gereist, habe Seminare gegeben und Menschen in energetischer Körperprozessarbeit ausgebildet. Nebenbei habe ich in drei Jahren ein Network-Business mit fast 4000 Menschen aufgebaut. Dabei habe ich gelernt, Gruppen zu halten und auf Bühnen zu stehen. Ausgerechnet ich, die früher Angst vor Menschenmengen hatte.</p>
+      <p>Leicht war das nicht immer. Es gab Monate, in denen das Geld richtig knapp war. In denen ich nachts wach lag und dachte: Wie zahle ich bloß die nächste Miete? Und mein Verstand flüsterte genüsslich: Siehst du, hab ich dir doch gesagt. Wärst du mal im sicheren Job geblieben. Ich wollte oft aufgeben. Doch die Vision war jedes Mal größer als die Angst.</p>
+      <p>Heute weiß ich: Die sogenannten Krisen haben mich fast immer zur nächsten Etappe gebracht. Selbstständig sein ist nie linear. Es ist eine Reise, vor allem eine Reise zu dir selbst. Der Weg zeigt sich nicht vorher, sondern unterwegs. Und wenn sich etwas nicht mehr stimmig anfühlt, wage ich einen Neustart. Nicht aus Flucht, sondern weil ich spüre: Jetzt ist es Zeit, mich zu dehnen.</p>
+    </div>
+  </div>
+  <div class="wrap album reveal">
+    <figure class="polaroid"><img src="bilder/kurs-gruppe.jpg" alt="Anja mit einer lachenden Seminargruppe auf einem Sofa"><figcaption>Unterwegs mit meinen Seminaren</figcaption></figure>
+    <figure class="polaroid"><img src="bilder/kurs-zertifikate.jpg" alt="Anja mit frisch ausgebildeten Teilnehmerinnen und ihren Zertifikaten"><figcaption>Frisch ausgebildet</figcaption></figure>
+    <figure class="polaroid"><img src="bilder/anja-ehrung.jpg" alt="Anja wird auf der Bühne für ihre Leistung geehrt"><figcaption>Ehrung auf der Bühne, 2022</figcaption></figure>
+  </div>
+</section>
+
+
+<section class="bigquote">
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap reveal">
+    <div class="ornament"><span></span>✦<span></span></div>
+    <p>Das alles ist nicht passiert, weil ich keine Angst mehr hatte. <em>Sondern weil ich trotzdem losgegangen bin.</em></p>
+    <div class="ornament"><span></span>✦<span></span></div>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="wave wave-2" style="--prev:#1B2540" aria-hidden="true"></div>
+  <div class="wrap ch-img reveal">
+    <div>
+      <div class="ch-num">04</div><div class="ch-label" style="margin-bottom:22px">Die Berufung</div>
+      <h2>Wie FreeQuency Spirit entstanden ist</h2>
+      <p class="lead">Einer dieser Neustarts war FreeQuency Spirit. Dabei wollte ich mit Frequenzen anfangs gar nichts zu tun haben.</p>
+      <p>Vor sechs Jahren bin ich zum ersten Mal damit in Berührung gekommen. Mein erster Gedanke: Ich habe doch meine energetische Arbeit, ich brauche kein Gerät. Tja. Totaler Blödsinn. Ich habe es an mir selbst ausprobiert und gemerkt, wie ich klarer wurde und an Themen kam, die vorher unbewusst ständig mitgelaufen sind. Zum Beispiel meine eigene Geldgrenze. Warum komme ich nicht über einen bestimmten Monatsumsatz hinaus? Und warum falle ich immer wieder zurück, wenn ich mal mehr hatte? Dahinter steckten alte Überzeugungen über Geld, über Business und über mich selbst. Seit ich sie sehen konnte, konnte ich sie auch verändern.</p>
+      <p>Heute arbeite ich mit einer Analyse, die ein wundervoller Mensch seit über 25 Jahren entwickelt. Sie macht anhand des persönlichen Biorhythmus sichtbar, welche Glaubensmuster, Emotionen und Gedanken auf der unbewussten Ebene wirken. Dazu kommt die Körperarbeit mit Kinesiologie, mit der wir lösen, was sich festgesetzt hat. Aus beidem ist meine <strong class="hl">Rückfluss-Methode</strong> entstanden: Erkennen, Lösen, Verankern.</p>
+      <p>Denn ich glaube nicht, dass wir hier sind, um ewig zu leiden oder uns ständig an alten Themen abzuarbeiten. Veränderung darf leicht gehen. Und wenn sich deine Energie verändert, verändert sich so vieles mit.</p>
+      <a href="index.html#so-arbeite-ich" class="btn btn-navy" style="margin-top:22px">So funktioniert die Rückfluss-Methode</a>
+    </div>
+    <div class="arch-frame"><div class="arch light"><img src="bilder/anja-berufung.jpg" alt="Anja Staufenbiel sitzt barfuß und nachdenklich lächelnd an einem alten Baumstamm"></div></div>
+  </div>
+</section>
+
+<section class="chapter offers-bg" style="padding-top:90px">
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap ch-grid reveal">
+    <div><div class="ch-num">05</div><div class="ch-label">Heute</div>
+      <figure class="polaroid" style="transform:rotate(2.5deg)"><img src="bilder/anja-meer-polaroid.jpg" alt="Anja lachend im roten Kleid am Strand bei Sonnenuntergang"><figcaption>Mein Traum vom Meer</figcaption></figure></div>
+    <div>
+      <h2>Ein Leben, das ich mir nie hätte vorstellen können</h2>
+      <p class="lead">Das ängstliche Mädchen von damals ist drei Monate allein mit dem Camper durch Spanien, Portugal und Frankreich gefahren.</p>
+      <p>Ich bin ausgewandert und lebe mit meinem Partner, unserem Hund und unserer Katze als Reisende. Wir bleiben, wo es uns gefällt. Und ziehen weiter, wenn es sich nicht mehr richtig anfühlt. Niemand sagt mir, wann ich Urlaub nehme. Das ist die Freiheit, nach der ich mich so lange gesehnt habe.</p>
+      <p>Ich bin die Erste in meiner Familie, die Unternehmerin geworden ist. Die ausgewandert ist. Die vieles anders gemacht hat, auch bei Gegenwind. Und genau deshalb weiß ich, wie herausfordernd dieser Weg sein kann.</p>
+      <p>Und mein Körper? Das Mädchen, dem man gesagt hat, sein Asthma werde nie ausheilen, ist heute gesünder und fitter denn je. Nicht über Nacht und nicht mit einem Wundermittel, sondern Schritt für Schritt, über viele Jahre. Mein Körper war immer mein Sparringspartner. Er hat mich gefordert, gebremst und mir gezeigt, wo ich hinschauen darf. Heute ist er mein treuster Gefährte. Meine eigene Geschichte hat mich gelehrt, wie viel Kraft zur Heilung in uns steckt, emotional wie körperlich. Das ist für mich keine Theorie. Das ist mein Lifestyle.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wave wave-2" style="--prev:#F7F0E1" aria-hidden="true"></div>
+  <div class="wrap narrow center reveal">
+    <div class="eyebrow">Meine Vision</div>
+    <h2>Geld gehört in die Hände der Menschen mit großen Träumen.</h2>
+    <p class="lead">In die Hände der Frauen, die etwas bewegen wollen. Die bereit sind loszugehen, statt auf den perfekten Moment zu warten. Ich weiß, dass es da draußen so viele wundervolle Frauen gibt, die bereit sind, die letzte Handbremse zu lösen. Damit aus dem Buch in der Schublade ein Buch im Regal wird. Aus der Idee im Handy ein Gruppenprogramm. Und aus dem Traum vom Meer ein Leben am Meer. Genau dabei begleite ich dich.</p>
+  </div>
+</section>
+
+<section class="offers-bg">
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Was ich heute weiß</div>
+      <h2>Drei Dinge, die mein Weg mich gelehrt hat</h2>
+    </div>
+    <div class="truths">
+      <div class="truth reveal"><div class="t-n">1</div><h3>Veränderung darf leicht sein.</h3><p>Wir sind nicht hier, um zu leiden. Wachstum muss sich nicht wie harte Arbeit anfühlen.</p></div>
+      <div class="truth reveal"><div class="t-n">2</div><h3>Körper, Geist und Seele gehören zusammen.</h3><p>Erst wenn alle drei zusammenspielen, verändert sich etwas wirklich und dauerhaft.</p></div>
+      <div class="truth reveal"><div class="t-n">3</div><h3>Du bist nie fertig.</h3><p>Es gibt kein Ziel, nach dem alles erledigt ist. Wir entdecken, wir forschen, wir wachsen. Und das ist das Schöne daran.</p></div>
+    </div>
+    <div class="values reveal"><span>Mut</span><span>Freiheit</span><span>Leichtigkeit</span></div>
+    <div class="closing-photo reveal"><div class="arch-frame"><div class="arch light"><img src="bilder/anja-empfangen-gross.jpg" alt="Anja Staufenbiel mit ausgebreiteten Armen im hohen Gras"></div></div></div>
+  </div>
+</section>
+
+
+
+<section class="final">
+  <div class="wave wave-2" style="--prev:#F7F0E1" aria-hidden="true"></div>
+  <div class="wrap reveal">
+    <div class="eyebrow">Und du?</div>
+    <h2>Bereit, deine <span class="gold-text">Handbremse</span> zu lösen?</h2>
+    <p class="lead">Alles, was ich weitergebe, habe ich selbst erlebt und erprobt. Lass uns in einem kostenlosen Klarheitsgespräch schauen, was dich gerade noch zurückhält. 15 Minuten, ganz ohne Druck.</p>
+    <a href="#" class="btn btn-gold link-gespraech">Klarheitsgespräch buchen</a>
+    <p class="small">15 Minuten · kostenlos · per Zoom</p>
+    <p class="alt-way">Noch nicht bereit für ein Gespräch? Mach das <a href="quiz.html">Energie-Quiz</a> oder komm in meine <a href="#" class="link-telegram">Telegram-Gruppe</a>.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wave wave-1" style="--prev:#FCF9F3" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="index.html" class="foot-logo"><img src="bilder/logo-hell.png" alt="FreeQuency Spirit Logo"></a>
+        <p>Anja Staufenbiel</p>
+        <p class="foot-claim">Ich bringe Gebenden das Empfangen bei.</p>
+      </div>
+      <ul>
+        <li><a href="meine-geschichte.html">Meine Geschichte</a></li>
+        <li><a href="quiz.html">Energie-Quiz</a></li>
+        <li><a href="#" class="link-freebie">Rückfluss-Session</a></li>
+        <li><a href="#" class="link-reset">The Frequency Reset</a></li>
+      </ul>
+      <ul>
+        <li><a href="#" class="link-instagram">Instagram</a></li>
+        <li><a href="#" class="link-impressum">Impressum</a></li>
+        <li><a href="#" class="link-datenschutz">Datenschutz</a></li>
+      </ul>
+    </div>
+    <p class="disclaimer">Meine Arbeit ist energetische Begleitung. Sie ersetzt keine ärztliche, psychotherapeutische oder heilpraktische Behandlung.</p>
+  </div>
+</footer>
+<script>
+/* =========================================================
+   EINSTELLUNGEN: Hier trägst du deine Links ein
+   ========================================================= */
+const LINKS = {
+  gespraech: "https://meet.brevo.com/anja-staufenbiel-1/klarheitsgesprach",                                   // Brevo-Kalender für das Klarheitsgespräch
+  reset: "https://frequency-reset.online",
+  zoom: "#",
+  freebie: "quiz.html",
+  instagram: "https://www.instagram.com/freequency_spirit/",
+  telegram: "https://t.me/+W1jT5dt_Ab01OTVi",
+  podcast: "https://open.spotify.com/episode/4gvnb0srmwHBMTMc4MjO6V",
+  interview: "https://www.youtube.com/watch?v=FGqr64kdPHI",
+  meditation: "https://www.youtube.com/watch?v=tjKFK74gNfw",
+  geschichten: "#",
+  impressum: "impressum.html",
+  datenschutz: "datenschutz.html"
+};
+Object.entries(LINKS).forEach(([k, url]) =>
+  document.querySelectorAll(".link-" + k).forEach(a => {
+    a.href = url;
+    if (/^https?:/.test(url)) { a.target = "_blank"; a.rel = "noopener"; }
+  }));
+
+
+
+/* Navigation */
+const header = document.getElementById("header");
+const burger = document.getElementById("burger");
+window.addEventListener("scroll", () => header.classList.toggle("scrolled", window.scrollY > 40), { passive: true });
+burger.addEventListener("click", () => {
+  const open = header.classList.toggle("menu-open");
+  burger.setAttribute("aria-expanded", open);
+});
+document.querySelectorAll(".menu a").forEach(a => a.addEventListener("click", () => {
+  header.classList.remove("menu-open"); burger.setAttribute("aria-expanded", false);
+}));
+
+/* Sanftes Einblenden */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
