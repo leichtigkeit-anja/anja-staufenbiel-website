@@ -87,7 +87,8 @@
   .bar { flex: 1; height: 4px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
   .bar-fill { height: 100%; background: var(--gold); width: 0; transition: width .4s ease; }
   .count { font-size: 13px; color: var(--sage); font-weight: 500; white-space: nowrap; }
-  .question { margin-bottom: 26px; }
+  .question { margin-bottom: 10px; }
+  .q-hint { font-size: 14px; color: var(--sage); font-style: italic; margin: 0 0 22px; }
   .options { display: grid; gap: 12px; }
   .option {
     text-align: left; background: var(--white); border: 1.5px solid var(--cream-dark);
@@ -186,6 +187,7 @@
       <div class="count" id="count">1 von 8</div>
     </div>
     <h2 class="question" id="question"></h2>
+    <p class="q-hint">Nicht alles passt zu 100 Prozent. Nimm einfach die Antwort, die dir am nächsten kommt.</p>
     <div class="options" id="options"></div>
     <button class="back" id="back">← Zurück</button>
   </section>
@@ -339,12 +341,12 @@ const PRIORITY = ["leuchtend", "bereit", "quelle", "fastfertig", "denkerin"];
    DIE ACHT FRAGEN
    ========================================================= */
 const QUESTIONS = [
-  { q: "Es ist Sonntagabend. Was geht dir durch den Kopf?", a: {
-    bereit: "Hoffentlich hat morgen niemand einen Notfall. Ach, ich bin ja eh erreichbar.",
-    leuchtend: "Ich müsste endlich meine Preise anpassen. Nächste Woche vielleicht.",
-    quelle: "Ich bin jetzt schon müde, wenn ich an Montag denke.",
-    fastfertig: "Diese Woche fange ich wirklich mit meinem Projekt an. Wie letzte Woche auch.",
-    denkerin: "Alles gleichzeitig. Und zwar dreimal hintereinander." } },
+  { q: "Ein ganz normaler Abend nach einem vollen Tag. Wie geht es dir?", a: {
+    bereit: "Ich bin noch halb im Dienst. Falls jemand schreibt, antworte ich natürlich.",
+    leuchtend: "Ich habe wieder mehr gegeben, als ich berechnet habe. Wie so oft.",
+    quelle: "Ich bin einfach platt. Für mich selbst bleibt nichts mehr übrig.",
+    fastfertig: "Eigentlich wollte ich heute an meiner Idee weitermachen. Dann eben morgen.",
+    denkerin: "Mein Körper liegt auf dem Sofa. Mein Kopf geht den Tag nochmal Szene für Szene durch." } },
   { q: "Eine Kundin fragt, ob du ihr preislich entgegenkommen kannst. Du …", a: {
     bereit: "… sagst sofort Ja und bietest ihr noch eine Extra-Session an.",
     leuchtend: "… gibst den Rabatt und denkst insgeheim: Ist ja eigentlich eh zu teuer.",
